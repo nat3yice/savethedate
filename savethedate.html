@@ -31,6 +31,85 @@
     <meta name='viewport'
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <link href='img-vid/favicon.png' rel="shortcut icon" type="image/png"/>
+
+    <script>
+      function openModal(modalName) {
+        document.getElementById(modalName).style.display = "block";
+        document.getElementById("outer-container").style.display = "none";
+      }
+      function closeModal(modalName) {
+        document.getElementById(modalName).style.display = "none";
+        document.getElementById("outer-container").style.display = "block";
+      }
+
+      function goToList(){
+        if(!validateEmail())
+        {
+          alert("Invalid credentials");
+        }
+
+        closeModal("myNav");
+        openModal("myList");
+      }
+
+      function sorryMessage(){
+        closeModal("sorryMessage");
+        openModal("sorryBye");        
+      }
+
+      function validateEmail(){
+        //TODO: Implement
+        return true;
+      }
+
+      function iWantCamping(){
+        console.log("Camping it is!");
+        disableAccomodations();
+      }
+
+      function iWantHotel(){
+        console.log("Hotel it is!");
+        disableAccomodations();
+      }
+
+      function disableAccomodations(){
+        document.getElementById("iWantHotel").disabled = true;
+        document.getElementById("iWantCamping").disabled = true;
+      }
+
+      function checkAttendees(){
+        var listModal = document.getElementById("myList");
+        var checkBoxes = listModal.getElementsByTagName("input");
+        var numberCheckboxes = checkBoxes.length;
+        var numberChecked = 0;
+        var hasYeses = false;
+
+        for (var i = 0; i < numberCheckboxes; i++){
+          if (checkBoxes[i].checked){
+            numberChecked ++;
+            if(checkBoxes[i].value === "yes"){
+              hasYeses = true;
+            }
+          }
+        }
+
+        //All answered
+        if (numberChecked * 2 >= numberCheckboxes){
+          closeModal("myList");
+          console.log("Complete!");
+          if(hasYeses){
+            openModal("myPlanning");
+          }
+          else{
+            closeModal("myList");
+            openModal("sorryMessage");
+          }
+        }
+        else{
+          console.log("More to go!");
+        }
+      }
+</script>
   </head>
   <body class='body'>
     <div class="fullscreen-bg">
@@ -54,7 +133,7 @@
             <p id='p-oldehove-mobile'>Oldehove</p>
             <p id='p-thenetherlands-mobile'>The Netherlands <a href='https://goo.gl/maps/yj2srDnwXc42' target='_blank'><img class='mapbutton-mobile'src='img-vid/mapicon.svg' alt='map pin drop icon'></a></p>
           </div>
-          <button type='button' id='login-button' class='button1' onclick="openNav()">Login</button>
+          <button type='button' id='login-button' class='button1' onclick="openModal('myNav')">Login</button>
         </div>
         <div class='location'>
           <p id='wed-location'>Shot at Lake Atitlan, Guatemala</p>
@@ -62,28 +141,70 @@
         </div>
       </div>
     </div>
+    <!-- Login Modal -->
     <div id="myNav" class="overlay">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeModal('myNav')">&times;</a>
         <div class="overlay-content">
           <p class="modal-message">Please use your invitation email and code we sent</p>
-          <form class="login-form" action="#">
             <input class="input-box" type="text" tabindex="10" value="" placeholder="email">
               <br>
             <input class="input-box" type="text" value="" placeholder="code">
               <br>
-            <input id="take-me-in-btn" type="submit" value="Take me in!">
-          </form>
+            <input id="take-me-in-btn" type="button" onClick="goToList()" value="Take me in!">
         </div>
     </div>
-    <script>
-      function openNav() {
-        document.getElementById("myNav").style.display = "block";
-        document.getElementById("outer-container").style.display = "none";
-}
-      function closeNav() {
-        document.getElementById("myNav").style.display = "none";
-        document.getElementById("outer-container").style.display = "block";
-}
-</script>
+    <!-- Modal where people say yes/no -->
+    <div id="myList" class="overlay">
+      <div class="overlay-content">
+          <h2>List of people invited!</h2>
+          <!-- This should be generated -->
+          <p>John Doe</p>
+          <input type="radio" name="john-doe" value="yes" onclick="checkAttendees()"> yes<br>
+          <input type="radio" name="john-doe" value="no" onclick="checkAttendees()"> no<br>
+
+          <p>Jane Doe</p>
+          <input type="radio" name="jane-doe" value="yes" onclick="checkAttendees()"> yes<br>
+          <input type="radio" name="jane-doe" value="no" onclick="checkAttendees()"> no<br>        
+
+          <p>Baby Doe</p>
+          <input type="radio" name="baby-doe" value="yes" onclick="checkAttendees()"> yes<br>
+          <input type="radio" name="baby-doe" value="no" onclick="checkAttendees()"> no<br>
+      </div>
+    </div>
+      <!-- Modal where people write that they're sorry they can't go -->
+      <div id="sorryMessage" class="overlay">
+          <div class="overlay-content">
+              <h2>Sorry you can't come!</h2>
+              <textarea name="Text1" cols="40" rows="5"></textarea>
+              <input type="button" onClick="sorryMessage()" value="Submit">
+          </div>
+        </div>
+      <!-- Modal where people are sad -->
+      <div id="sorryBye" class="overlay">
+          <div class="overlay-content">
+              <h2>We'll have fun anyways!</h2>
+              <p>No worries, we still love you!</p>
+          </div>
+        </div>
+    <!-- Modal where people fill in details -->
+    <div id="myPlanning" class="overlay">
+        <div class="overlay-content">
+            <h2>All the info to know how things will work</h2>
+            <h3>I want camping</h3>
+            <input type="button" id="iWantCamping" onClick="iWantCamping()" value="Submit">
+            <h3>I want hotel</h3>
+            <input type="button" id="iWantHotel" onClick="iWantHotel()" value="Submit">
+            <h3>Oh, hey what about the songs?</h3>
+            <!-- This should be generated-->
+            <input class="input-box" id="song1" type="text" value="" placeholder="code">
+            <input class="input-box" id="artist1" type="text" value="" placeholder="code">
+            <br>
+            <input class="input-box" id="song2" type="text" value="" placeholder="code">
+            <input class="input-box" id="artist2" type="text" value="" placeholder="code">
+            
+          </div>
+
+    </div>
+  </div>
   </body>
 </html>

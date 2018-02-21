@@ -1,0 +1,51 @@
+[
+    {
+        "family": "doe",
+        "emails": [
+            {
+                "email": "jane@doe.com",
+                "code": "C3PO"
+            }, 
+            {   
+                "email": "john@doe.com", 
+                "code": "R2D2"
+            }],
+        "responded": true,
+        "members": [
+            {
+                "name": "john doe", 
+                "coming": true
+            }, 
+            {
+                "name": "jane doe",
+                "coming": true
+            },
+            {
+                "name": "baby doe", 
+                "coming": false
+            }
+            ],
+        "american": false,
+        "accomodation": "camping" ,
+        "songs": 
+        [
+            "Darude", "SandStorm"
+        ]
+    },
+    {
+        "family": "trump",
+        "emails": [
+            {
+                "email": "donald@duck.gov",
+                "code": "911"
+            }
+        ],
+        "responded": false,
+        "members": [
+            {
+                "name": "donald trump"
+            }
+            ],
+        "american": true
+    }
+]
