@@ -8,34 +8,28 @@
             {   
                 "email": "john@doe.com"
             }],
-        "responded": true,
+        "responded": false,
         "members": [
             {
-                "name": "john doe", 
-                "coming": true
+                "name": "john doe"
             }, 
             {
-                "name": "jane doe",
-                "coming": true
+                "name": "jane doe"
             },
             {
-                "name": "baby doe", 
-                "coming": false
+                "name": "baby doe" 
             }
             ],
         "american": false,
-        "accomodation": "camping" ,
         "songs": 
         [
-            "Darude", "SandStorm"
         ]
     },
     {
         "family": "trump",
         "emails": [
             {
-                "email": "donald@duck.gov",
-                "code": "911"
+                "email": "donald@duck.gov"
             }
         ],
         "responded": false,

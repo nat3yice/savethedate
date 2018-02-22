@@ -53,6 +53,7 @@
       }
 
       closeModal("myNav");
+      disableAll();
       openModal("myList");
     }
 
@@ -76,10 +77,48 @@
       disableAccomodations();
     }
 
-    function disableAccomodations() {
-      document.getElementById("iWantHotel").disabled = true;
-      document.getElementById("iWantCamping").disabled = true;
+    function disableAccomodations(){
+      changeAccomodations(true);
     }
+
+    function enableAccomodations(){
+      changeAccomodations(false);
+    }
+
+    function changeAccomodations(trueOrFalse) {
+      document.getElementById("iWantHotel").disabled = trueOrFalse;
+      document.getElementById("iWantCamping").disabled = trueOrFalse;
+    }
+
+    function disableSongs(){
+      changeSongs(true);
+    }
+
+    function enableSongs(){
+      changeSongs(false);
+    }
+
+    function changeSongs(trueOrFalse){
+      var songInputs = document.getElementsByClassName("song");  
+      for(var i = 0; i < songInputs.length; i++){
+        songInputs[i].disabled = trueOrFalse;
+      }
+    }
+
+    function disableAll(){
+      disableAccomodations();
+      disableSongs();
+    }
+
+    function enableAll(){
+      enableAccomodations();
+      enableSongs();
+    }
+
+    function finish(){
+      closeModal("myList");
+    }
+
 
     function checkAttendees() {
       var listModal = document.getElementById("attendeesList");
@@ -102,6 +141,9 @@
         console.log("Complete!");
         if (!hasYeses) {
           openModal("sorryMessage");
+        }
+        else{
+          enableAll();
         }
       }
       else {
@@ -208,13 +250,15 @@
         <input type="button" id="iWantHotel" onClick="iWantHotel()" value="Submit">
         <h3>Oh, hey what about the songs?</h3>
         <!-- This should be generated-->
-        <input class="input-box" id="song1" type="text" value="" placeholder="song">
-        <input class="input-box" id="artist1" type="text" value="" placeholder="artist">
+        <input class="input-box song" id="song1" type="text" value="" placeholder="song">
+        <input class="input-box song" id="artist1" type="text" value="" placeholder="artist">
         <br>
-        <input class="input-box" id="song2" type="text" value="" placeholder="song">
-        <input class="input-box" id="artist2" type="text" value="" placeholder="artist">
+        <input class="input-box song" id="song2" type="text" value="" placeholder="song">
+        <input class="input-box song" id="artist2" type="text" value="" placeholder="artist">
 
       </div>
+
+      <input type="button" id="finished" onClick="finish()" value="Close">
 
     </div>
   </div>
