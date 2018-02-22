@@ -79,7 +79,21 @@
         else{
 
           //set number of visitor checkboxes
-          //set number songs
+          var names = visitor.names;
+          var attendeesList = document.getElementById("attendeesList");
+
+          for(var i = 0; i < names.length; i++){
+            var para = document.createElement("p");
+            var node = document.createTextNode(names[i]);
+            var br = document.createElement("br");
+            para.appendChild(node);
+
+            attendeesList.appendChild(para);
+            attendeesList.appendChild(br);
+          }
+
+
+//set number songs
 
           closeModal("myNav");
           disableAll();
@@ -244,7 +258,7 @@
         <!-- Modal where people say yes/no -->
         <h2>List of people invited!</h2>
         <!-- This should be generated -->
-        <p>John Doe</p>
+        <!-- <p>John Doe</p>
         <input type="radio" name="john-doe" value="yes" onclick="checkAttendees()"> yes
         <br>
         <input type="radio" name="john-doe" value="no" onclick="checkAttendees()"> no
@@ -260,7 +274,7 @@
         <input type="radio" name="baby-doe" value="yes" onclick="checkAttendees()"> yes
         <br>
         <input type="radio" name="baby-doe" value="no" onclick="checkAttendees()"> no
-        <br>
+        <br> -->
       </div>
 
       <!-- Modal where people write that they're sorry they can't go -->
