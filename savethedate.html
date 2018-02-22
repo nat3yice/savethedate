@@ -83,17 +83,69 @@
           var attendeesList = document.getElementById("attendeesList");
 
           for(var i = 0; i < names.length; i++){
+
+            //Name
             var para = document.createElement("p");
             var node = document.createTextNode(names[i]);
             var br = document.createElement("br");
             para.appendChild(node);
 
+            //Yes Radio button  
+            var yesInput = document.createElement("input");
+            yesInput.setAttribute('type',"radio");
+            yesInput.setAttribute('name', names[i]);
+            yesInput.setAttribute('value', "yes");
+            yesInput.setAttribute('onClick', "checkAttendees()");
+            yesInput.innerHTML = "yes";
+
+            var yesLabel = document.createElement("label");
+            yesLabel.setAttribute('for', names[i]);
+            yesLabel.innerHTML = "yes";
+
+            //No Radio button
+            var noInput = document.createElement("input");
+            noInput.setAttribute('type',"radio");
+            noInput.setAttribute('name', names[i]);
+            noInput.setAttribute('value', "no");
+            noInput.setAttribute('onClick', "checkAttendees()");
+            noInput.innerHTML = "no";
+
+            var noLabel = document.createElement("label");
+            noLabel.setAttribute('for', names[i]);
+            noLabel.innerHTML = "no";
+
             attendeesList.appendChild(para);
+            attendeesList.appendChild(br);
+            attendeesList.appendChild(yesInput);
+            attendeesList.appendChild(yesLabel);
+            attendeesList.appendChild(br);
+            attendeesList.appendChild(noInput);
+            attendeesList.appendChild(noLabel);
             attendeesList.appendChild(br);
           }
 
+          var details = document.getElementById("details");
+          for(var i = 0; i < names.length; i++){
+            var br = document.createElement("br");
 
-//set number songs
+            var songInput = document.createElement("input");
+            songInput.setAttribute('type', "text");
+            songInput.setAttribute('value', "");
+            songInput.setAttribute('placeholder', "song");
+            songInput.setAttribute('id', "song"+i);
+            songInput.setAttribute('class', "input-box song");
+
+            var artistInput = document.createElement("input");
+            artistInput.setAttribute('type', "text");
+            artistInput.setAttribute('value', "");
+            artistInput.setAttribute('placeholder', "artist");
+            artistInput.setAttribute('id', "artist"+i);
+            artistInput.setAttribute('class', "input-box song");
+
+            details.appendChild(songInput);
+            details.appendChild(artistInput);
+            details.appendChild(br);
+          }
 
           closeModal("myNav");
           disableAll();
@@ -257,24 +309,8 @@
       <div id="attendeesList">
         <!-- Modal where people say yes/no -->
         <h2>List of people invited!</h2>
-        <!-- This should be generated -->
-        <!-- <p>John Doe</p>
-        <input type="radio" name="john-doe" value="yes" onclick="checkAttendees()"> yes
-        <br>
-        <input type="radio" name="john-doe" value="no" onclick="checkAttendees()"> no
-        <br>
-
-        <p>Jane Doe</p>
-        <input type="radio" name="jane-doe" value="yes" onclick="checkAttendees()"> yes
-        <br>
-        <input type="radio" name="jane-doe" value="no" onclick="checkAttendees()"> no
-        <br>
-
-        <p>Baby Doe</p>
-        <input type="radio" name="baby-doe" value="yes" onclick="checkAttendees()"> yes
-        <br>
-        <input type="radio" name="baby-doe" value="no" onclick="checkAttendees()"> no
-        <br> -->
+        <!-- NOTE: List of people will be generated when firebase data comes in -->
+        
       </div>
 
       <!-- Modal where people write that they're sorry they can't go -->
@@ -298,15 +334,17 @@
         <input type="button" id="iWantHotel" onClick="iWantHotel()" value="Submit">
         <h3>Oh, hey what about the songs?</h3>
         <!-- This should be generated-->
-        <input class="input-box song" id="song1" type="text" value="" placeholder="song">
+        <!-- NOTE: List of songs will be generated when firebase data comes in -->
+
+        <!-- <input class="input-box song" id="song1" type="text" value="" placeholder="song">
         <input class="input-box song" id="artist1" type="text" value="" placeholder="artist">
         <br>
         <input class="input-box song" id="song2" type="text" value="" placeholder="song">
-        <input class="input-box song" id="artist2" type="text" value="" placeholder="artist">
+        <input class="input-box song" id="artist2" type="text" value="" placeholder="artist"> -->
 
       </div>
 
-      <input type="button" id="finished" onClick="finish()" value="Close">
+      <input type="button" id="finished" onClick="finish()" value="Save">
 
     </div>
   </div>
