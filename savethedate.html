@@ -50,6 +50,7 @@
   <link href='img-vid/favicon.png' rel="shortcut icon" type="image/png" />
 
   <script>
+    var accomodation = "none";
     var visitorCode = null;
     var visitor = null;
 
@@ -94,6 +95,7 @@
             var yesInput = document.createElement("input");
             yesInput.setAttribute('type',"radio");
             yesInput.setAttribute('name', names[i]);
+            yesInput.setAttribute('id', names[i]+" yes");
             yesInput.setAttribute('value', "yes");
             yesInput.setAttribute('onClick', "checkAttendees()");
             yesInput.innerHTML = "yes";
@@ -106,6 +108,7 @@
             var noInput = document.createElement("input");
             noInput.setAttribute('type',"radio");
             noInput.setAttribute('name', names[i]);
+            noInput.setAttribute('id', names[i]+" yes");
             noInput.setAttribute('value', "no");
             noInput.setAttribute('onClick', "checkAttendees()");
             noInput.innerHTML = "no";
@@ -168,11 +171,13 @@
     }
 
     function iWantCamping() {
+      accomodation = "camping";
       console.log("Camping it is!");
       disableAccomodations();
     }
 
     function iWantHotel() {
+      accomodation = "hotel";
       console.log("Hotel it is!");
       disableAccomodations();
     }
@@ -217,6 +222,30 @@
 
     function finish(){
       closeModal("myList");
+
+      //send firebase data.
+      visitor["responded"] = true;
+      visitor["accomodation"] = accomodation;
+
+      var songAndArtistInputs = document.getElementsByClassName("song");
+      var songs = [];
+      for(var i = 0; i < visitor.names.length*2-1; i+=2){
+        songs.push([songAndArtistInputs[i].value, songAndArtistInputs[i + 1].value]);
+      }
+      visitor["songs"] = songs;
+
+      var names = [];
+      for(var i = 0; i < visitor.names.length; i++){
+        var name = visitor.names[i];
+        var input = document.getElementById(name+" yes");
+        names.push({"name" : name, "coming": input.checked});
+      }
+      visitor.names = names;
+
+      visitor.message = document.getElementById("sorryMessageText").value;
+
+      console.log(visitor);
+      database.ref('attendees/' + visitorCode).set(visitor);
     }
 
 
@@ -316,7 +345,7 @@
       <!-- Modal where people write that they're sorry they can't go -->
       <div id="sorryMessage" style="display:none;">
         <h2>Sorry you can't come!</h2>
-        <textarea name="Text1" cols="40" rows="5"></textarea>
+        <textarea id="sorryMessageText" name="Text1" cols="40" rows="5"></textarea>
         <input type="button" onClick="sorryMessage()" value="Submit">
       </div>
       <!-- Modal where people are sad -->
@@ -333,14 +362,7 @@
         <h3>I want hotel</h3>
         <input type="button" id="iWantHotel" onClick="iWantHotel()" value="Submit">
         <h3>Oh, hey what about the songs?</h3>
-        <!-- This should be generated-->
         <!-- NOTE: List of songs will be generated when firebase data comes in -->
-
-        <!-- <input class="input-box song" id="song1" type="text" value="" placeholder="song">
-        <input class="input-box song" id="artist1" type="text" value="" placeholder="artist">
-        <br>
-        <input class="input-box song" id="song2" type="text" value="" placeholder="song">
-        <input class="input-box song" id="artist2" type="text" value="" placeholder="artist"> -->
 
       </div>
 

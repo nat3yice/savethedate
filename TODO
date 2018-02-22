@@ -1,0 +1,5 @@
+* Names structure change, so when you reconnect names are objects instead
+* data sent only on save
+* data not reused on reconnection
+* login twice without refresh has weird behaviour
+* probably more
