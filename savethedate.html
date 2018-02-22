@@ -13,6 +13,18 @@
       a.appendChild(r);
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
   </script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script>
+      // Initialize Firebase
+      // TODO: Replace with your project's customized code snippet
+      var config = {
+        databaseURL: "https://rsvp-dbb88.firebaseio.com"
+      };
+      firebase.initializeApp(config);
+      var database = firebase.database();
+
+  </script>
+
   <meta charset='UTF-8'>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Nathan and Nikita!</title>
