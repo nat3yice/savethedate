@@ -1,0 +1,268 @@
+* {
+  box-sizing : border-box;
+  margin     : 0;
+  padding    : 0;
+}
+
+.fullscreen-bg {
+  z-index        : -100;
+  position       : fixed;
+  top            : 0;
+  right          : 0;
+  bottom         : 0;
+  left           : 0;
+  overflow       : hidden;
+  pointer-events : none;
+}
+
+.fullscreen-bg:after {
+  z-index    : 10;
+  content    : '';
+  display    : block;
+  position   : absolute;
+  top        : 0;
+  left       : 0;
+  width      : 100%;
+  height     : 100%;
+  background : rgba(235,140,46,0.45);
+}
+
+.fullscreen-bg__video {
+  position       : absolute;
+  top            : 0;
+  left           : 0;
+  width          : 100%;
+  height         : 100%;
+  pointer-events : none;
+}
+
+.body {
+  display : flex;
+  width   : 100%;
+  height  : 100vh;
+}
+
+img {
+  vertical-align : center;
+}
+
+
+/* hover */
+#login-button:hover {
+  background-color: #FFF;
+  color: #50E3C2;
+  border: #50E3C2;
+}
+
+.modal {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(53,26,0, 0.6);
+    justify-items: center;
+    align-items: center;
+}
+
+.modal p {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 34px;
+    color: #F8E6C1;
+    display: block;
+    transition: 0.3s;
+    font-weight: 100;
+}
+.modal a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 30px;
+    color: #F8E6C1;
+    display: block;
+    border-radius: 5px;
+    background-color: rgba(165,157,154, 0.6);
+    transition: 0.3s;
+    align-items: center;
+}
+.modal button {
+    background-color: transparent;
+    border: 2px solid #F8E6C1;
+    border-radius: 100px;
+}
+.modal a:hover, .modal a:focus {
+    color: #50E3C2;
+}
+.modal .closebtn {
+    position: absolute;
+    top: -1%;
+    right: 1%;
+    font-size: 50px;
+    background-color: transparent;
+}
+.login-form {
+  margin-top: 1em;
+}
+#take-me-in-btn {
+  display          : flex;
+  width            : 262px;
+  height           : 71px;
+  margin-top       : 1em;
+  margin-right     : auto;
+  margin-left      : auto;
+  color            : #F8E6C1;
+  border           : 2px solid #F8E6C1;
+  border-radius    : 100px;
+  background-color : transparent;
+  text-align       : center;
+  font-size        : 24px;
+  justify-content  : center;
+  line-height      : 42px;
+  letter-spacing   : 2px;
+  -webkit-transition-duration: 0.4s; /*safari*/
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+#take-me-in-btn:hover {
+  background-color: #FFF;
+  color: #50E3C2;
+  border: #50E3C2;
+}
+
+.input-box {
+  background-color: rgba(165,157,154, 0.6);
+  border: 0px;
+  border-radius: 5px;
+  text-align: center;
+  width: 377px;
+  height: 60px;
+  margin: .5em 0;
+  font-size: 24px;
+  color: #F8E6C1;
+  letter-spacing: 2px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #F8E6C1;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #F8E6C1;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #F8E6C1;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+button:focus {outline:0;}
+input:focus {outline:0;}
+
+.white_background {
+  display: grid;
+  width: 90%;
+  height: 90%;
+  border-radius: 20px;
+  background-color: rgba(255,255,255, .95);
+  justify-content: center;
+  overflow-y: auto;
+  grid-template-columns: 50px 1fr 1fr 20px;
+  grid-template-rows: 50px auto 50px;
+}
+
+.modal__header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+.modal__content {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: blue;
+}
+
+.modal__footer {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+}
+
+
+
+@media
+  (min-aspect-ratio : 16/9) {
+  .fullscreen-bg__video {
+    top    : -100%;
+    height : 300%;
+  }
+}
+
+@media
+  (max-aspect-ratio : 16/9) {
+  .fullscreen-bg__video {
+    left  : -108%;
+    width : 320%;
+  }
+}
+
+/* iphone 5 */
+
+@media
+  only screen
+  and (max-width : 330px) {
+
+}
+
+/* iphone 6 and medium screens */
+
+@media
+  only screen
+  and (min-width : 331px)
+  and (max-width : 375px) {
+
+}
+
+/* iphone 6S and plus screens */
+
+@media
+  only screen
+  and (min-width : 376px)
+  and (max-width : 766px) {
+
+}
+
+/* Tablet Styles */
+
+@media
+  only screen
+  and (min-width : 767px)
+  and (max-width : 1024px) {
+
+}
+
+/* Desktop Styles */
+
+@media
+  only screen
+  and (min-width : 1025px) {
+
+}
+
+/**
+ * release only if needed for better performance (mobile users) @media
+ * (max-width: 767px) { .fullscreen-bg { background:
+ * url('img-vid/eng-540p-low-img.jpg') center center / cover no-repeat; }
+ */

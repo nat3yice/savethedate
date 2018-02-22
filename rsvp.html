@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='eng'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Be there or be square!</title>
+    <link href="https://fonts.googleapis.com/css?family=Glass+Antiqua" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day" rel="stylesheet">
+    <link rel='stylesheet' href='rsvp.css'/>
+    <style type="text/css">
+      .hero {
+        font-family: 'Dawning of a New Day', cursive;
+      }
+      .details, .location, #login-button, .modal-content, .input-box, #take-me-in-btn {
+        font-family: 'Glass Antiqua', cursive;
+      }
+    </style>
+    <meta name='viewport'
+      content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <link href='img-vid/favicon.png' rel="shortcut icon" type="image/png"/>
+  </head>
+  <body class='body'>
+    <div class="fullscreen-bg">
+        <video loop muted autoplay poster='img-vid/eng-540p-low-img.jpg'class="fullscreen-bg__video">
+          <source src="img-vid/eng-540p-low.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="myNav" class="modal">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="white_background">
+          <div class="modal__header">Your fucking logo</div>
+          <div class="modal__content">
+            <div class="yay">
+              <div>line 1</div>
+              <div>line 2</div>
+            </div>
+          </div>
+          <div class="modal__footer">footer</div>
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("myNav").style.display = "block";
+}
+      function closeNav() {
+        document.getElementById("myNav").style.display = "none";
+}
+    </script>
+  </body>
+</html>
