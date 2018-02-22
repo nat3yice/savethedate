@@ -77,6 +77,10 @@
           alert("Invalid credentials");
         }
         else{
+
+          //set number of visitor checkboxes
+          //set number songs
+
           closeModal("myNav");
           disableAll();
           openModal("myList");
@@ -91,11 +95,10 @@
     }
 
     function validateVisitor(visitor, email) {
-      if (visitor.emails.indexOf(email) > -1) {
-          return true;
-      } else {
+      if (visitor === null || visitor.emails.indexOf(email) < 0) {
           return false;
       }
+      return true;
     }
 
     function iWantCamping() {
