@@ -50,6 +50,9 @@
   <link href='img-vid/favicon.png' rel="shortcut icon" type="image/png" />
 
   <script>
+    var visitorCode = null;
+    var visitor = null;
+
     function openModal(modalName) {
       document.getElementById(modalName).style.display = "block";
       document.getElementById("outer-container").style.display = "none";
@@ -60,13 +63,26 @@
     }
 
     function goToList() {
-      if (!validateEmail()) {
-        alert("Invalid credentials");
+      visitorCode = document.getElementById("code-input").value;
+      if(visitorCode.length < 1){
+          alert("Please use your code!");
+          return;
       }
 
-      closeModal("myNav");
-      disableAll();
-      openModal("myList");
+      firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
+        visitor = snapshot.val();
+        var visitorEmail = document.getElementById("email-input").value;
+
+        if (!validateVisitor(visitor, visitorEmail)) {
+          alert("Invalid credentials");
+        }
+        else{
+          closeModal("myNav");
+          disableAll();
+          openModal("myList");
+        }
+        
+      });
     }
 
     function sorryMessage() {
@@ -74,9 +90,12 @@
       openModal("sorryBye");
     }
 
-    function validateEmail() {
-      //TODO: Implement
-      return true;
+    function validateVisitor(visitor, email) {
+      if (visitor.emails.indexOf(email) > -1) {
+          return true;
+      } else {
+          return false;
+      }
     }
 
     function iWantCamping() {
@@ -209,9 +228,9 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeModal('myNav')">&times;</a>
     <div class="overlay-content">
       <p class="modal-message">Please use your invitation email and code we sent</p>
-      <input class="input-box" type="text" tabindex="10" value="" placeholder="email">
+      <input class="input-box" id="email-input" type="text" tabindex="10" value="" placeholder="email">
       <br>
-      <input class="input-box" type="text" value="" placeholder="code">
+      <input class="input-box" id="code-input" type="text" value="" placeholder="code">
       <br>
       <input id="take-me-in-btn" type="button" onClick="goToList()" value="Take me in!">
     </div>
