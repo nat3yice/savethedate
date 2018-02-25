@@ -20,22 +20,268 @@
     <link href='img-vid/favicon.png' rel="shortcut icon" type="image/png"/>
   </head>
   <body class='body'>
+<!-- background video -->
     <div class="fullscreen-bg">
         <video loop muted autoplay poster='img-vid/eng-540p-low-img.jpg'class="fullscreen-bg__video">
           <source src="img-vid/eng-540p-low.mp4" type="video/mp4">
         </video>
     </div>
+<!-- modal post login -->
     <div id="myNav" class="modal">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<!-- background of foreground modal :) -->
       <div class="white_background">
-          <div class="modal__header">Your fucking logo</div>
-          <div class="modal__content">
-            <div class="yay">
-              <div>line 1</div>
-              <div>line 2</div>
-            </div>
+          <div class="modal__header">
+            <a href=""><img href="" src="img-vid/temp-logo.png"></img></a>
           </div>
-          <div class="modal__footer">footer</div>
+          <div class="modal__content">
+<!-- capture guests' decision -->
+            <div class="greetings-section">
+             <div class="yay">
+               <h1>You're invited! Yay!</h1>
+               <p>welcome to our wedding website</br>
+                 it's now time to R.S.V.P.</p>
+               <h2>June 30th, 2018</h2>
+               <p>Oldehove, The Netherlands</p>
+               <h3>Are you coming?</h3>
+             </div>
+              <div class="guest-responses">
+                <div class="guest1">
+                  <p>Babette van Son</p>
+                  <button type="button">yes</button>
+                  <button type="button">no</button>
+                </div>
+                <div class="guest2">
+                  <p>Robert van Baraneveld</p>
+                  <button type="button">yes</button>
+                  <button type="button">no</button>
+                </div>
+                <h3>We kindly ask you to respond by March 10, 2018.</h3>
+                <hr class="greetings-line-break"></hr>
+                <h4>Below you'll find more info</h4>
+              </div>
+            </div>
+<!-- venue section -->
+           <div class="venue-section">
+              <div class="venue-header">Venue
+                <hr class="underline-venue"></hr></div>
+              <div class="venue-img"><img class="hayemaheerd-pic" src="img-vid/hayemaheerd.jpg"
+                alt="Hayema Heerd Barn"></div>
+              <div class="venue-name">Hayema Heerd</div>
+              <div class="venue-address">Jensemaweg 3
+                </br>
+                9883 TH Oldehove
+                </br>
+                The Netherlands
+              </div>
+              <div class="venue-description">Hayema Heerd is a traditional Dutch farm in the beautiful national
+                 landscape called Middag Humsterland in the Groningen province. This former
+                 livestock farm has been turned into a unique wedding venue with a campsite
+                 and a homemade straw hotel with straw igloos, covered wagons, a straw castle
+                  and a barn hostel.
+              </div>
+            </div>
+<!-- schedule section -->
+           <div class="schedule-section">
+             <div class="schedule-header">Schedule
+               <hr class="underline-schedule"></hr></div>
+             <div class="schedule-date">June 30th, 2018</div>
+             <div class="schedule-img"><img class="svg-schedule" src="img-vid/schedule.svg">
+             </div>
+             <div class="schedule-arrivaltime-notes">*Your arrival time depends on whether you have to check-in at
+               the venue, set up your tent or caravan and whether you would like to attend the tea ceremony.
+             </br></br>
+               **In a traditional Chinese marriage ceremony, the bride and groom serve their parents and elder
+               relatives tea. It is a devout way to show respect and gratitude to their family for all the years of
+                love and care. This process also symbolizes the joining together of the two families. For those that
+                 are curious to see a tea ceremony (or Nikita in a Chinese dress), you’re more than welcome to attend!
+               </div>
+           </div>
+<!-- accomodation section -->
+           <div class="accomodation-section">
+             <div class="accomodation-header">Accomodation
+               <hr class="underline-accomodation"></hr>
+             </div>
+             <div class="accomodation-message">Since our venue is situated in quite a secluded area, we have prepared some
+                accommodation options for you. There is a big national event nearby during the weekend of our wedding and
+                 because of that, hotel room availability is limited. Therefore we would like to ask you to share the rooms
+                  with family or friends if possible.
+                </br></br>
+                Please let us know whether you would like to book any of the accommodations below before February 24th so we
+                 can make sure nobody has to sleep between the cows ;).
+             </div>
+             <!-- camping option-->
+             <div class="accomodation-camp">
+               <img class="svg-camp" src="img-vid/vector-camp.svg" alt="tent logo">
+               <div class="camp-title">Camp at the venue
+                 <hr class="underline-camp"></hr>
+               </div>
+               <div class="camp-msg">Bring your own tent, caravan or camper!
+               </div>
+               <div class="camp-details-container">
+                 <div class="camp-details">
+                   Facilities: Shared bathrooms</br>
+                   Breakfast: Included</br>
+                   Price: €16.00 / person / night
+                 </div>
+              </div>
+             <div class="camp-link"><a href="">more info</a>
+             </div>
+             <button class="camp-btn" type="button">I'm camping!</button>
+             </div>
+             <!-- book a bed on venue option-->
+             <div class="accomodation-bookbed">
+               <img class="svg-bookbed" src="img-vid/vector-bed.svg" alt="bed logo">
+               <div class="bookbed-title">Book a bed at the venue
+                 <hr class="underline-bookbed"></hr>
+               </div>
+               <div class="bookbed-msg-container">
+                 <div class="bookbed-msg">Go for a unique experience
+                    and discover how comfortable a bed made of straw
+                     can be. Don’t worry, there’s a comfortable
+                     mattress pad on top!
+                 </div>
+               </div>
+               <div class="bookbed-details-container">
+                 <div class="bookbed-details">
+                   Facilities: Shared bathrooms</br>
+                   Breakfast: Included</br>
+                   Price: €33.00 / person / night
+                 </div>
+               </div>
+               <div class="bookbed-link"><a href="">more info</a>
+               </div>
+               <button class="bookbed-btn" type="button">Book me a bed!</button>
+              </div>
+               <!-- book a hotel room option-->
+               <div class="accomodation-hotel">
+                 <img class="svg-hotel" src="img-vid/vector-hotel.svg" alt="hotel logo">
+                 <div class="hotel-title">Best Western Hotel in Aduard
+                   <hr class="underline-hotel"></hr>
+                 </div>
+                 <div class="hotel-msg-container">
+                   <div class="hotel-msg">We made reservations for the
+                     Deluxe Rooms at the Best Western Hotel in Aduard.
+                     Every room can host a maxiumum of 4 people. It is
+                     possible to book a room for 2 nights (Friday 29th
+                     and Saturday 30th).
+                     </br>
+                     </br>
+                     The hotel is a 10 minute drive away from the venue.
+                   </div>
+                 </div>
+                 <div class="hotel-details-container">
+                   <div class="hotel-details">
+                     Facilities: Private bathrooms</br>
+                     Breakfast: Included</br>
+                     Price/room/night
+                   </div>
+                 </div>
+                 <div class="hotel-prices-container">
+                   <div class="hotel-prices">
+                     1-2 people   €76.00</br>
+                     3 people     €108.00</br>
+                     4 people     €140.00</br>
+                   </div>
+                 </div>
+                 <div class="hotel-link"><a href="">more info</a>
+                 </div>
+                 <button class="hotel-btn" type="button">Book me a room</button>
+                 <div class="textbox-sharingroom-container">
+                   <textarea class="textbox-sharingroom" name="sharingroomwith" cols="40" rows="5"
+                     placeholder="Please tell us if you'd like only Saturday or both Friday and Saturday. And if you're sharing a room please tell us the names of your roomates..."
+                   ></textarea>
+                 </div>
+             </div>
+             <div class="accomodation-nothanks">
+               <div class="or"><hr class="overline-or"></hr>OR
+               </div>
+               <button class="noaccomodation
+
+
+               -btn" type="button">No thanks, I don't need accomodation</button>
+             </div>
+           </div>
+<!-- meet the team secion -->
+           <div class="team-section">
+             <div class="team-header">Meet the team
+               <hr class="underline-team"></hr>
+             </div>
+             <div class="team-msg">We are very pleased to tell you that we have two “ceremoniemeesters”.
+               In The Netherlands, their role is comparable to the maid of honor. They’ve been super helpful
+               with our wedding planning and will help to make it an unforgettable day! Charlotte and Eline
+               will also be available for all of you in case you have any questions or want to gossip ;).
+             </div>
+             <div class="team-pics">
+               <div class="charlotte"><img src="img-vid/charlotte.png">
+                 <h1>Charlotte</h1>
+                 <div class="phone-container">
+                   <img class="whatsapp" src="img-vid/whatsapp.png"><span>+31 62550 2779</span>
+                 </div>
+               </div>
+               <div class="eline"><img src="img-vid/eline.png">
+                 <h1>Eline</h1>
+                 <div class="phone-container">
+                   <img class="whatsapp" src="img-vid/whatsapp.png"><span>+31 62550 2779</span>
+                 </div>
+               </div>
+             </div>
+             <div class="team-email">
+               <a href="mailto:n2ceremoniemeesters@gmail.com?Subject=&#9901;%20Nathan%20%26%20Nikita%27s%20Wedding%20&#9901;">Email: n2ceremoniemeesters@gmail.com</a>
+             </div>
+           </div>
+<!-- song request section -->
+           <div class="song-request-section">
+             <div class="song-request-header">Song request
+               <hr class="underline-song"></hr>
+             </div>
+             <div class="song-request-msg">
+               We want everyone to enjoy the party and dance the night away.
+             </br>
+             What better way of doing that than to your favorite song?
+             </div>
+             <div class="song-request-input">
+               <div class="request1">
+                 <input id="artist1" class="artist" type="text" placeholder="artist 1"/>
+                 <input id="title1" class="title" type="text" placeholder="title 1"/>
+               </div>
+               <div class="request2">
+                 <input id="artist2" class="artist" type="text" placeholder="artist 2"/>
+                 <input id="title2" class="title" type="text" placeholder="title 2"/>
+               </div>
+               <div class="request3">
+                 <input id="artist3" class="artist" type="text" placeholder="artist 3"/>
+                 <input id="title3" class="title" type="text" placeholder="title 3"/>
+               </div>
+               <div class="request4">
+                 <input id="artist4" class="artist" type="text" placeholder="artist 4"/>
+                 <input id="title4" class="title" type="text" placeholder="title 4"/>
+               </div>
+               <div class="request5">
+                 <input id="artist5" class="artist" type="text" placeholder="artist 5"/>
+                 <input id="title5" class="title" type="text" placeholder="title 5"/>
+               </div>
+               <div class="request6">
+                 <input id="artist6" class="artist" type="text" placeholder="artist 6"/>
+                 <input id="title6" class="title" type="text" placeholder="title 6"/>
+               </div>
+               <div class="request7">
+                 <input id="artist7" class="artist" type="text" placeholder="artist 7"/>
+                 <input id="title7" class="title" type="text" placeholder="title 7"/>
+               </div>
+               <div class="request8">
+                 <input id="artist8" class="artist" type="text" placeholder="artist 8"/>
+                 <input id="title8" class="title" type="text" placeholder="title 8"/>
+               </div>
+           </div>
+          </div>
+      <div class="modal__footer">
+        <div class="footer">
+          <div>We kindly ask you to R.S.V.P. by March 10, 2018.</div>
+          <div>Your R.S.V.P. is final after March 10, 2018.</div>
+          <button type="button" id="close-end-btn" >Close</button>
+        </div>
+      </div>
     </div>
     <script>
       function openNav() {

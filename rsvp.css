@@ -2,8 +2,12 @@
   box-sizing : border-box;
   margin     : 0;
   padding    : 0;
+  font-family: 'Glass Antiqua', cursive;
+  color: #4A4A4A;
 }
 
+
+/* video */
 .fullscreen-bg {
   z-index        : -100;
   position       : fixed;
@@ -14,7 +18,6 @@
   overflow       : hidden;
   pointer-events : none;
 }
-
 .fullscreen-bg:after {
   z-index    : 10;
   content    : '';
@@ -26,7 +29,6 @@
   height     : 100%;
   background : rgba(235,140,46,0.45);
 }
-
 .fullscreen-bg__video {
   position       : absolute;
   top            : 0;
@@ -35,13 +37,11 @@
   height         : 100%;
   pointer-events : none;
 }
-
 .body {
   display : flex;
   width   : 100%;
   height  : 100vh;
 }
-
 img {
   vertical-align : center;
 }
@@ -54,6 +54,8 @@ img {
   border: #50E3C2;
 }
 
+
+/*dark overlay behind white-background modal*/
 .modal {
     display: grid;
     height: 100%;
@@ -66,32 +68,6 @@ img {
     justify-items: center;
     align-items: center;
 }
-
-.modal p {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 34px;
-    color: #F8E6C1;
-    display: block;
-    transition: 0.3s;
-    font-weight: 100;
-}
-.modal a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 30px;
-    color: #F8E6C1;
-    display: block;
-    border-radius: 5px;
-    background-color: rgba(165,157,154, 0.6);
-    transition: 0.3s;
-    align-items: center;
-}
-.modal button {
-    background-color: transparent;
-    border: 2px solid #F8E6C1;
-    border-radius: 100px;
-}
 .modal a:hover, .modal a:focus {
     color: #50E3C2;
 }
@@ -102,61 +78,61 @@ img {
     font-size: 50px;
     background-color: transparent;
 }
-.login-form {
-  margin-top: 1em;
-}
-#take-me-in-btn {
-  display          : flex;
-  width            : 262px;
-  height           : 71px;
-  margin-top       : 1em;
-  margin-right     : auto;
-  margin-left      : auto;
-  color            : #F8E6C1;
-  border           : 2px solid #F8E6C1;
-  border-radius    : 100px;
-  background-color : transparent;
-  text-align       : center;
-  font-size        : 24px;
-  justify-content  : center;
-  line-height      : 42px;
-  letter-spacing   : 2px;
-  -webkit-transition-duration: 0.4s; /*safari*/
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-#take-me-in-btn:hover {
-  background-color: #FFF;
-  color: #50E3C2;
-  border: #50E3C2;
-}
 
-.input-box {
-  background-color: rgba(165,157,154, 0.6);
-  border: 0px;
-  border-radius: 5px;
-  text-align: center;
-  width: 377px;
-  height: 60px;
-  margin: .5em 0;
-  font-size: 24px;
-  color: #F8E6C1;
-  letter-spacing: 2px;
-}
 
+/*placeholders for input fields*/
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #F8E6C1;
     opacity: 1; /* Firefox */
 }
-
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #F8E6C1;
 }
-
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #F8E6C1;
 }
 
+/*placeholders for RSVP input fields*/
+.textbox-sharingroom::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #9B9B9B;
+    opacity: 1; /* Firefox */
+    letter-spacing: 1px;
+    text-align: justify;
+}
+.textbox-sharingroom:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #9B9B9B;
+    opacity: 1; /* Firefox */
+    letter-spacing: 1px;
+    text-align: justify;
+}
+.textbox-sharingroom::-ms-input-placeholder { /* Microsoft Edge */
+    color: #9B9B9B;
+    opacity: 1; /* Firefox */
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+/*placeholders for song input fields*/
+.artist::placeholder, .title::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #9B9B9B;
+    opacity: 1; /* Firefox */
+    letter-spacing: 1px;
+    text-align: justify;
+}
+.artist:-ms-input-placeholder, .title:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #9B9B9B;
+    opacity: 1; /* Firefox */
+    letter-spacing: 1px;
+    text-align: justify;
+}
+.artist::-ms-input-placeholder, .title::-ms-input-placeholder { /* Microsoft Edge */
+    color: #9B9B9B;
+    opacity: 1; /* Firefox */
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+/*hiding scrollbar*/
 ::-webkit-scrollbar {
     display: none;
 }
@@ -164,40 +140,734 @@ img {
 button:focus {outline:0;}
 input:focus {outline:0;}
 
+
+/*main content of modal*/
 .white_background {
   display: grid;
   width: 90%;
-  height: 90%;
+  max-width: 1000px;
+  max-height: 90%;
+  min-height: 90%;
   border-radius: 20px;
   background-color: rgba(255,255,255, .95);
   justify-content: center;
   overflow-y: auto;
-  grid-template-columns: 50px 1fr 1fr 20px;
-  grid-template-rows: 50px auto 50px;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-auto-rows: auto;
 }
-
+/* MODAL HEADER AKA LOGO */
 .modal__header {
   grid-column: 1 / -1;
+  grid-row: 0 / 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  margin-top: 80px;
 }
 
+/* MODAL BODY */
 .modal__content {
   grid-column: 1 / -1;
-  display: flex;
+  grid-row: 2 / 3;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: blue;
 }
+
+/* guest response section */
+.greetings-section {
+  text-align: center;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+
+.yay {
+  grid-column: 2 / 3;
+  text-align: center;
+}
+/* You're invited! Yay! */
+.yay > h1 {
+  font-size: 64px;
+  font-weight: normal;
+  margin-top: 40px;
+  letter-spacing: 2.33px;
+}
+
+/* welcome to our wedding website...
+it's now time to R.S.V.P. */
+.yay > p:nth-of-type(1) {
+  font-size: 24px;
+  line-height: 160%;
+  font-weight: lighter;
+  margin-top: 30px;
+  letter-spacing: 2.33px;
+}
+/* June 30th, 2018 */
+.yay > h2 {
+  font-size: 55px;
+  color: #50E3C2;
+  margin-top: 70px;
+  letter-spacing: 2.53px;
+  font-weight: normal;
+}
+
+/* Oldehove, The Netherlands */
+.yay > p:nth-of-type(2) {
+  font-size: 22px;
+  margin-top: 10px;
+  letter-spacing: 2.14px;
+}
+
+/* Are you coming? */
+.yay h3 {
+  font-size: 45px;
+  letter-spacing: 2.33px;
+  margin-top: 70px;
+  font-weight: normal;
+}
+
+/* guest response section */
+.guest-responses {
+  grid-column: 2 / 3;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* names of guests */
+.guest-responses p {
+  font-size: 32px;
+  letter-spacing: 3.11px;
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* guest response buttons */
+.guest-responses button {
+  width: auto;
+  height: auto;
+  font-size: 30px;
+  color: #FFF;
+  background-color: #929292;
+  border-radius: 5px;
+  padding: 10px 50px;
+  margin: 0px 10px;
+}
+
+/* We kindly ask you to respond
+by March 10, 2018. */
+.guest-responses > h3 {
+  font-size: 22px;
+  letter-spacing: 2.14px;
+  margin-top: 60px;
+  font-weight: lighter;
+}
+
+/* line break for end of Yay section */
+.greetings-line-break {
+  display: block;
+  border: 0;
+  border-top: 2px solid #50E3C2;
+  width: 40%;
+  margin-top: 60px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+
+/* Below you'll find more info */
+.guest-responses > h4 {
+  font-size: 50px;
+  margin-top: 60px;
+  font-weight: normal;
+}
+
+/*  venue section  */
+.venue-section {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+/* Venue Title */
+.venue-header {
+  grid-column: 2 / 3;
+  text-align: center;
+  font-size: 45px;
+  margin-top: 70px;
+}
+.underline-venue {
+  display: block;
+  border: 0;
+  border-top: 2px solid #50E3C2;
+  width: 110px;
+  margin-top: 5px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+
+/* Venue JPEG */
+.venue-img {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 60px;
+}
+.hayemaheerd-pic {
+  width: 101%;
+}
+
+/* Hayema Heerd */
+.venue-name {
+  grid-column: 2 / 3;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 50px;
+  letter-spacing: 3.88px;
+}
+
+/* Jensemaweg 3
+9883 TH Oldehove
+The Netherlands */
+.venue-address {
+  grid-column: 2 / 3;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 22px;
+  letter-spacing: 3px;
+  line-height: 160%;
+}
+
+/* venue desription */
+.venue-description {
+  grid-column: 2 / 3;
+  margin-top: 50px;
+  font-size: 22px;
+  letter-spacing: 2.3px;
+  line-height: 160%;
+  text-align: justify;
+}
+
+/* schedule section */
+.schedule-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  text-align: center;
+}
+
+
+.schedule-header {
+  grid-column: 2 / 3;
+  font-size: 45px;
+  letter-spacing: 2.33px;
+  margin-top: 70px;
+  text-align: center;
+}
+.underline-schedule {
+  display: block;
+  border: 0;
+  border-top: 2px solid #50E3C2;
+  width: 170px;
+  margin-top: 5px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+
+.schedule-date {
+  grid-column: 2 / 3;
+  font-size: 40px;
+  letter-spacing: 2.6px;
+  margin-top: 70px;
+  text-align: center;
+}
+.schedule-img {
+  grid-column: 2 / 3;
+  margin-top: 70px;
+  justify-content: center;
+}
+.svg-schedule {
+  width: 100%;
+  max-width: 480px;
+}
+.schedule-arrivaltime-notes {
+  grid-column: 2 / 3;
+  font-size: 18px;
+  letter-spacing: 2.75px;
+  margin-top: 50px;
+  text-align: justify;
+  line-height: 150%;
+}
+
+/* accomodation section */
+.accomodation-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  text-align: center;
+}
+
+/* accomodation */
+.accomodation-header {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: 2.33px;
+  margin-top: 70px;
+}
+
+/* underline accomodation */
+.underline-accomodation {
+  display: block;
+  border: 0;
+  border-top: 2px solid #50E3C2;
+  width: 300px;
+  margin-top: 5px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+.accomodation-message {
+  grid-column: 2 / 3;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  text-align: justify;
+  margin-top: 50px;
+  line-height: 160%;
+}
+.accomodation-camp {
+  grid-column: 2 / 3;
+  margin-top: 80px;
+  text-align: center;
+}
+.camp-title {
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-top: 17px;
+}
+/* underline for camp-title */
+.underline-camp {
+  display: block;
+  border: 0;
+  border-top: 1px solid #50E3C2;
+  width: auto;
+  max-width: 290px;
+  margin-top: 10px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+.camp-msg {
+  font-size: 17px;
+  letter-spacing: 2.6px;
+  margin-top: 20px;
+}
+.camp-details-container {
+  display: inline-block;
+}
+.camp-details {
+  font-size: 17px;
+  letter-spacing: 2.6px;
+  margin-top: 21px;
+  line-height: 150%;
+  text-align: left;
+}
+.camp-link {
+  font-size: 18px;
+  letter-spacing: 2.75px;
+  margin-top: 22px;
+}
+.camp-link > a {
+  color: #50E3C2;
+}
+.accomodation-camp > button {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  font-weight: 300;
+  color: #FFF;
+  background-color: #DFDFDF;
+  border-radius: 5px;
+  border: none;
+  letter-spacing: 1.65px;
+  padding: 12px 17px;
+  margin-top: 22px;
+}
+.svg-camp {
+  width: 100%;
+  max-width: 90px;
+}
+
+/* book bed section */
+.accomodation-bookbed {
+  grid-column: 2 / 3;
+  margin-top: 107px;
+  text-align: center;
+}
+.bookbed-title {
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-top: 17px;
+}
+/* underline for camp-title */
+.underline-bookbed {
+  display: block;
+  border: 0;
+  border-top: 1px solid #50E3C2;
+  width: auto;
+  max-width: 360px;
+  margin-top: 10px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+.bookbed-msg-container {
+  display: inline-block;
+  width: 100%;
+}
+.bookbed-msg {
+  font-size: 17px;
+  letter-spacing: 2.6px;
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 150%;
+  max-width: 490px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bookbed-details-container {
+  display: inline-block;
+  width: 100%;
+}
+.bookbed-details {
+  font-size: 17px;
+  letter-spacing: 2.6px;
+  margin-top: 21px;
+  line-height: 150%;
+  text-align: left;
+  max-width: 265px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bookbed-link {
+  font-size: 18px;
+  letter-spacing: 2.75px;
+  margin-top: 22px;
+}
+.bookbed-link > a {
+  color: #50E3C2;
+}
+.accomodation-bookbed > button {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  font-weight: 300;
+  color: #FFF;
+  background-color: #DFDFDF;
+  border-radius: 5px;
+  border: none;
+  letter-spacing: 1.65px;
+  padding: 12px 17px;
+  margin-top: 22px;
+}
+.svg-bookbed {
+  width: 100%;
+  max-width: 73px;
+}
+
+/* hotel section */
+.accomodation-hotel {
+  grid-column: 2 / 3;
+  margin-top: 107px;
+  text-align: center;
+}
+.hotel-title {
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-top: 17px;
+}
+/* underline for hotel-title */
+.underline-hotel {
+  display: block;
+  border: 0;
+  border-top: 1px solid #50E3C2;
+  width: auto;
+  max-width: 430px;
+  margin-top: 10px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+.hotel-msg-container {
+  display: inline-block;
+  width: 100%;
+}
+.hotel-msg {
+  font-size: 17px;
+  letter-spacing: 2.6px;
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 150%;
+  max-width: 490px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hotel-details-container {
+  display: inline-block;
+  width: 100%;
+}
+.hotel-details {
+  font-size: 17px;
+  letter-spacing: 2.6px;
+  margin-top: 21px;
+  line-height: 150%;
+  text-align: left;
+  max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hotel-prices-container {
+  display: inline-block;
+  width: 100%;
+}
+.hotel-prices {
+  font-size: 17px;
+  letter-spacing: 2.6px;
+  margin-top: 12px;
+  line-height: 150%;
+  text-align: left;
+  max-width: 153px;
+  min-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hotel-link {
+  font-size: 18px;
+  letter-spacing: 2.75px;
+  margin-top: 22px;
+}
+.hotel-link > a {
+  color: #50E3C2;
+}
+.accomodation-hotel > button {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  font-weight: 300;
+  color: #FFF;
+  background-color: #DFDFDF;
+  border-radius: 5px;
+  border: none;
+  letter-spacing: 1.65px;
+  padding: 12px 17px;
+  margin-top: 22px;
+}
+.textbox-sharingroom-container {
+  display: inline-block;
+  width: 100%;
+}
+.textbox-sharingroom {
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 115px;
+  resize: none;
+  padding: 15px 20px;
+  font-size: 17px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 32px;
+  line-height: 150%;
+  box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.50);
+}
+.svg-hotel {
+  width: 100%;
+  max-width: 73px;
+}
+
+/* no thanks, I don't need accomodation */
+.accomodation-nothanks {
+  grid-column: 2 / 3;
+}
+.overline-or {
+  display: block;
+  border: 0;
+  border-top: 2px solid #50E3C2;
+  width: auto;
+  max-width: 430px;
+  height: 1px;
+  margin-top: 60px;
+  margin-bottom: 47px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+.or {
+  font-size: 28px;
+  letter-spacing: 3px;
+}
+.accomodation-nothanks > button {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  font-weight: 300;
+  color: #FFF;
+  background-color: #DFDFDF;
+  border-radius: 5px;
+  border: none;
+  letter-spacing: 1.65px;
+  padding: 12px 17px;
+  margin-top: 47px;
+}
+
+/* Meet the team secion */
+.team-section {
+  grid-column: 1 / -1;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+.team-header {
+  grid-column: 2 / 3;
+  margin-top: 95px;
+  font-size: 45px;
+  letter-spacing: 2.33px;
+}
+.underline-team {
+  display: block;
+  border: 0;
+  border-top: 2px solid #50E3C2;
+  width: auto;
+  max-width: 309px;
+  margin-top: 5px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+.team-msg {
+  grid-column: 2 / 3;
+  text-align: justify;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 160%;
+  margin-top: 46px;
+}
+.team-pics {
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 57px;
+}
+.charlotte {
+  grid-column: 1 / 2;
+}
+.eline {
+  grid-column: 2 / 3;
+}
+.charlotte > h1, .eline > h1 {
+  font-size: 31px;
+  letter-spacing: 1.55px;
+  margin-top: 28px;
+}
+.phone-container {
+  margin-top: 13px;
+}
+.whatsapp {
+  vertical-align: middle;
+}
+.phone-container > span {
+  font-size: 22px;
+  letter-spacing: 1.55px;
+  padding-left: 8px;
+  vertical-align: middle;
+}
+.team-email {
+  grid-column: 2 / 3;
+  margin-top: 55px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+/* song request section */
+.song-request-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  text-align: center;
+}
+.song-request-header {
+  grid-column: 2 / 3;
+  font-size: 45px;
+  letter-spacing: 2.33px;
+  margin-top: 95px;
+}
+.underline-song {
+  display: block;
+  border: 0;
+  border-top: 2px solid #50E3C2;
+  width: auto;
+  max-width: 288px;
+  margin-top: 5px;
+  height: 1px;
+  text-align: center; /*for IE & Opera*/
+  -webkit-margin-start: auto; /*for Chrome, Safari, Firefox*/
+  -webkit-margin-end: auto; /*for Chrome, Safari, Firefox*/
+}
+.song-request-msg {
+  grid-column: 2 / 3;
+  margin-top: 46px;
+  letter-spacing: 1px;
+  font-size: 20px;
+  line-height: 160%;
+}
+.song-request-input {
+  grid-column: 2 / 3;
+  margin-top: 49px;
+  text-align: center;
+}
+.request1 > input, .request2 > input,
+.request3 > input, .request4 > input,
+.request5 > input, .request6 > input,
+.request7 > input, .request8 > input  {
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  padding: 10px 24px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 5px;
+  background: #D8D8D8;
+  border: 0;
+  color: #4A4A4A;
+}
+
+.request2 , .request3 , .request4 , .request5 , .request6 , .request7 , .request8 {
+  margin-top: 30px;
+}
+
 
 .modal__footer {
   grid-column: 1 / -1;
+  grid-row: 3 / 4;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: orange;
+  background-color:orange;
+}
+.footer {
+  text-align: center;
 }
 
 
