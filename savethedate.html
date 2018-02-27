@@ -19,6 +19,16 @@
     <link href="https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
     <link rel='stylesheet' href='savethedate.css'/>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        // TODO: Replace with your project's customized code snippet
+        var config = {
+          databaseURL: "https://rsvp-dbb88.firebaseio.com"
+        };
+        firebase.initializeApp(config);
+        var database = firebase.database();
+    </script>
     <style type="text/css">
       .hero {
         font-family: 'Dawning of a New Day', cursive;
@@ -30,7 +40,50 @@
     <meta name='viewport'
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <link href='img-vid/favicon.png' rel="shortcut icon" type="image/png"/>
+    <script>
+
+      var visitorCode = null;
+      var visitor = null;
+
+      function openNav() {
+        document.getElementById("myNav").style.display = "block";
+        document.getElementById("outer-container").style.display = "none";
+      }
+      function closeNav() {
+        document.getElementById("myNav").style.display = "none";
+        document.getElementById("outer-container").style.display = "block";
+      }
+
+      function validateVisitor(visitor, email) {
+        if (visitor === null || visitor.emails.indexOf(email) < 0) {
+            return false;
+        }
+        return true;
+      }
+
+      function openRsvp(){
+        visitorCode = document.getElementById("code-input").value;
+        if(visitorCode.length < 1){
+            alert("Please use your code!");
+            return;
+        }
+
+        firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
+        visitor = snapshot.val();
+        var visitorEmail = document.getElementById("email-input").value;
+        if (!validateVisitor(visitor, visitorEmail)) {
+          alert("Invalid credentials");
+        }
+        else{
+          alert('Credientials ok');
+          window.location.replace("/rsvp.html");
+        }
+      });
+    }
+    </script>
   </head>
+
+
   <body class='body'>
     <div class="fullscreen-bg">
         <video loop muted autoplay poster='img-vid/eng-540p-low-img.jpg'class="fullscreen-bg__video">
@@ -70,23 +123,13 @@
         <div class="overlay-content">
           <p class="modal-message">Please use your invitation email and code we sent</p>
           <form class="login-form" action="#">
-            <input class="input-box" type="text" tabindex="10" value="" placeholder="email">
+            <input class="input-box" type="text" id="email-input" tabindex="10" value="" placeholder="email">
               <br>
-            <input class="input-box" type="text" value="" placeholder="code">
+            <input class="input-box" type="text" id="code-input" value="" placeholder="code">
               <br>
-            <input id="take-me-in-btn" type="submit" value="Take me in!">
+            <input id="take-me-in-btn" type="submit" onclick="openRsvp()" value="Take me in!">
           </form>
         </div>
     </div>
-    <script>
-      function openNav() {
-        document.getElementById("myNav").style.display = "block";
-        document.getElementById("outer-container").style.display = "none";
-}
-      function closeNav() {
-        document.getElementById("myNav").style.display = "none";
-        document.getElementById("outer-container").style.display = "block";
-}
-    </script>
   </body>
 </html>
