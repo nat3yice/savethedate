@@ -31,7 +31,7 @@
     </script>
 
     <script>
-
+      var accommodation = null;
       var params = window.location.search.substr(1);
       var visitorCode = params.replace("code=", "");
       var visitor = null;
@@ -41,6 +41,64 @@
     }
     function closeModal(modalName) {
       document.getElementById(modalName).style.display = "none";
+    }
+
+    function SaveAndCloseNav(){
+      //TODO: Send to firebase
+
+      closeModal("myNav");
+    }
+
+    function changeSongs(trueOrFalse){
+      var songDiv = document.getElementById("song-request-input");  
+      var songsAndArtists = songDiv.getElementsByTagName("input");
+
+      for(var i = 0; i < songsAndArtists.length; i++){
+        songsAndArtists[i].disabled = trueOrFalse;
+      }
+    }
+
+    function changeAccomodations(trueOrFalse){
+      document.getElementById("iWantCamping").disabled = trueOrFalse;
+      document.getElementById("iWantVenue").disabled = trueOrFalse;
+      document.getElementById("iWantHotel").disabled = trueOrFalse;
+      document.getElementById("iWantNothing").disabled = trueOrFalse;
+      document.getElementById("sharingroomwith").disabled = trueOrFalse;
+    }
+
+    function disableAll(){
+      changeSongs(true);
+      changeAccomodations(true);
+    }
+
+    function enableAll(){
+      changeSongs(false);
+      changeAccomodations(false);
+
+    }
+
+    function iWantHotel(){
+      accomodation = "hotel";
+      console.log("Hotel it is!");
+      changeAccomodations(true);
+    }
+
+    function iWantVenue(){
+      accomodation = "venue";
+      console.log("venue it is!");
+      changeAccomodations(true);
+    }
+
+    function iWantNothing(){
+      accomodation = "nothing";
+      console.log("nothing it is!");
+      changeAccomodations(true);
+    }
+
+    function iWantCamping() {
+      accomodation = "camping";
+      console.log("Camping it is!");
+      changeAccomodations(true);
     }
 
     function sorryMessage(){
@@ -71,7 +129,7 @@
             closeModal("no-decision");
           }
           else{
-            // enableAll();
+            enableAll();
 
             openModal("so-happy-response");
             closeModal("no-decision");
@@ -80,6 +138,34 @@
         else {
           console.log("More to go!");
         }
+    }
+
+    function generateSongList(names){
+
+      var details = document.getElementById("song-request-input");
+
+      for(var i = 1; i < names.length+1; i++){
+        var mainDiv = document.createElement("div");
+        mainDiv.setAttribute('class', "request"+i);
+
+        var artistInput = document.createElement("input");
+        artistInput.setAttribute('type', "text");
+        artistInput.setAttribute('value', "");
+        artistInput.setAttribute('placeholder', "artist");
+        artistInput.setAttribute('id', "artist"+i);
+        artistInput.setAttribute('class', "artist");
+
+        var songInput = document.createElement("input");
+        songInput.setAttribute('type', "text");
+        songInput.setAttribute('value', "");
+        songInput.setAttribute('placeholder', "title");
+        songInput.setAttribute('id', "title"+i);
+        songInput.setAttribute('class', "title");
+
+        mainDiv.appendChild(songInput);
+        mainDiv.appendChild(artistInput);
+        details.appendChild(mainDiv);
+      }
     }
 
       function generateAttendeesList(names){
@@ -133,6 +219,9 @@
         visitor = snapshot.val();
 
         generateAttendeesList(visitor.names);
+        generateSongList(visitor.names);
+
+        disableAll();
 
       });
     </script>
@@ -266,7 +355,7 @@
               </div>
              <div class="camp-link"><a href="https://www.hayemaheerd.com/farm-campsite/" target="_blank">more info</a>
              </div>
-             <button class="camp-btn" type="button">I'm camping!</button>
+             <button class="camp-btn" type="button" id="iWantCamping" onClick="iWantCamping()">I'm camping!</button>
              </div>
              <!-- book a bed on venue option-->
              <div class="accomodation-bookbed">
@@ -290,7 +379,7 @@
                </div>
                <div class="bookbed-link"><a href="https://www.hayemaheerd.com/straw-hotel/" target="_blank">more info</a>
                </div>
-               <button class="bookbed-btn" type="button">Book me a bed!</button>
+               <button class="bookbed-btn" id="iWantVenue" onClick="iWantVenue()" type="button">Book me a bed!</button>
               </div>
                <!-- book a hotel room option-->
                <div class="accomodation-hotel">
@@ -325,9 +414,9 @@
                  </div>
                  <div class="hotel-link"><a href="https://www.bestwestern.com/en_US/book/hotel-details.92722.html" target="_blank">more info</a>
                  </div>
-                 <button class="hotel-btn" type="button">Book me a room</button>
+                 <button class="hotel-btn" type="button" id="iWantHotel" onClick="iWantHotel()">Book me a room</button>
                  <div class="textbox-sharingroom-container">
-                   <textarea class="textbox-sharingroom" name="sharingroomwith" cols="40" rows="5"
+                   <textarea id="sharingroomwith" class="textbox-sharingroom" name="sharingroomwith" cols="40" rows="5"
                      placeholder="Please tell us if you'd like only Saturday or both Friday and Saturday. And if you're sharing a room please tell us the names of your roomates..."
                    ></textarea>
                  </div>
@@ -335,7 +424,7 @@
              <div class="accomodation-nothanks">
                <div class="or"><hr class="overline-or"></hr>OR
                </div>
-               <button class="noaccomodation-btn" type="button">No thanks, I don't need accomodation</button>
+               <button class="noaccomodation-btn" id="iWantNothing" onClick="iWantNothing()" type="button">No thanks, I don't need accomodation</button>
              </div>
             </div>
 <!-- meet the team secion -->
@@ -375,39 +464,8 @@
                We want everyone to enjoy the party and dance the night away.
              What better way of doing that than to your favorite song?
                </div>
-               <div class="song-request-input">
-                 <div class="request1">
-                   <input id="artist1" class="artist" type="text" placeholder="artist 1"/>
-                   <input id="title1" class="title" type="text" placeholder="title 1"/>
-                 </div>
-                 <div class="request2">
-                   <input id="artist2" class="artist" type="text" placeholder="artist 2"/>
-                   <input id="title2" class="title" type="text" placeholder="title 2"/>
-                 </div>
-                 <div class="request3">
-                   <input id="artist3" class="artist" type="text" placeholder="artist 3"/>
-                   <input id="title3" class="title" type="text" placeholder="title 3"/>
-                 </div>
-                 <div class="request4">
-                   <input id="artist4" class="artist" type="text" placeholder="artist 4"/>
-                   <input id="title4" class="title" type="text" placeholder="title 4"/>
-                 </div>
-                 <div class="request5">
-                   <input id="artist5" class="artist" type="text" placeholder="artist 5"/>
-                   <input id="title5" class="title" type="text" placeholder="title 5"/>
-                 </div>
-                 <div class="request6">
-                   <input id="artist6" class="artist" type="text" placeholder="artist 6"/>
-                   <input id="title6" class="title" type="text" placeholder="title 6"/>
-                 </div>
-                 <div class="request7">
-                   <input id="artist7" class="artist" type="text" placeholder="artist 7"/>
-                   <input id="title7" class="title" type="text" placeholder="title 7"/>
-                 </div>
-                 <div class="request8">
-                   <input id="artist8" class="artist" type="text" placeholder="artist 8"/>
-                   <input id="title8" class="title" type="text" placeholder="title 8"/>
-                 </div>
+               <div id="song-request-input" class="song-request-input">
+                 <!-- List of songs is generated here --> 
               </div>
             </div>
 <!-- wedding registry section -->
@@ -448,7 +506,7 @@
         <div class="footer">
           <div id="rsvp-auto-save">Your R.S.V.P. is automatically saved.</div>
           <div id="rsvp-request">We kindly ask you to make final decisions by March 26, 2018.</div>
-          <button type="button" id="close-end-btn" onclick="closeNav()">Close</button>
+          <button type="button" id="close-end-btn" onclick="SaveAndCloseNav()">Close</button>
         </div>
       </div>
     </div>
