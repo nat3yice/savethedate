@@ -56,7 +56,7 @@
 
       function validateVisitor(visitor, email) {
         var lowercaseEmails = visitor.emails;
-        for(var i = 0; i < emails.length; i++){
+        for(var i = 0; i < lowercaseEmails.length; i++){
           lowercaseEmails[i] = lowercaseEmails[i].toLowerCase();
         }
 
@@ -67,22 +67,27 @@
       }
 
       function openRsvp(){
-        visitorCode = document.getElementById("code-input").value;
+        console.log("1");
+        setTimeout(function(){
+          console.log("2");
+
+                  visitorCode = document.getElementById("code-input").value;
         if(visitorCode.length < 1){
             alert("Please use your code!");
             return;
         }
 
         firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
-        visitor = snapshot.val();
-        var visitorEmail = document.getElementById("email-input").value;
-        if (!validateVisitor(visitor, visitorEmail)) {
-          alert("Invalid credentials");
-        }
-        else{
-          window.location.replace("/rsvp.html?code="+visitorCode);
-        }
-      });
+          visitor = snapshot.val();
+          var visitorEmail = document.getElementById("email-input").value;
+          if (!validateVisitor(visitor, visitorEmail)) {
+            alert("Invalid credentials");
+          }
+          else{
+            window.location.replace("/rsvp.html?code="+visitorCode);
+          }
+        });
+        }, 1000);
     }
     </script>
   </head>
