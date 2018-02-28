@@ -46,16 +46,24 @@
                <h3>Are you coming?</h3>
              </div>
               <div class="guest-responses">
-                <div class="guest">
-                  <p>Babette van Son</p>
-                  <button type="button">yes</button>
-                  <button type="button">no</button>
-                </div>
-                <div class="guest">
-                  <p>Robert van Baraneveld</p>
-                  <button type="button">yes</button>
-                  <button type="button">no</button>
-                </div>
+                <form class="form">
+                  <div class="switch-field">
+                    <div class="switch-title">Babette van Son</div>
+                    <input type="radio" id="switch_left" name="responses" value="yes" />
+                    <label for="switch_left">yes</label>
+                    <input type="radio" id="switch_right" name="responses" value="no" />
+                    <label for="switch_right">no</label>
+                  </div>
+                </form>
+                <form class="form">
+                  <div class="switch-field">
+                    <div class="switch-title">Robert van Barnaveld</div>
+                    <input type="radio" id="switch_2_left" name="responses" value="yes" />
+                    <label for="switch_2_left">yes</label>
+                    <input type="radio" id="switch_2_right" name="responses" value="no" />
+                    <label for="switch_2_right">no</label>
+                  </div>
+                </form>
                 <div class="no-responses-yet">
                   <h3>We kindly ask you to respond by March 28, 2018.</h3>
                 </div>

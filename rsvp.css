@@ -247,31 +247,67 @@ it's now time to R.S.V.P. */
   margin-top: 30px;
 }
 
-/* names of guests */
-.guest-responses p {
-  font-size: 32px;
-  letter-spacing: 1px;
-  font-weight: 300;
+/* RADIO BUTTONS STYLING */
+.switch-field {
   margin-top: 23px;
+  margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.switch-title {
+  font-size: 32px;
   margin-bottom: 10px;
 }
 
-/* guest response buttons */
-.guest-responses button {
+.switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
+  float: center;
+}
+
+.switch-field label {
+  display: inline-block;
   width: auto;
   height: auto;
-  font-size: 25px;
-  color: #FFF;
   background-color: #929292;
-  border-radius: 5px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
   padding: 8px 40px;
   margin: 0px 10px;
   border: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition:    all 0.1s ease-in-out;
+  -ms-transition:     all 0.1s ease-in-out;
+  -o-transition:      all 0.1s ease-in-out;
+  transition:         all 0.1s ease-in-out;
 }
-.guest-responses button:hover {
-  color: #FFF;
-  background-color:#50E3C2;
+
+.switch-field label:hover {
+    cursor: pointer;
+    color: #FFF;
+    background-color:#50E3C2;
 }
+
+.switch-field input:checked + label {
+  background-color: #50E3C2;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.switch-field label {
+  border-radius: 5px;
+}
+
 
 /* We kindly ask you to respond
 by March 10, 2018. */
