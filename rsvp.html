@@ -18,6 +18,54 @@
     <meta name='viewport'
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <link href='img-vid/favicon.png' rel="shortcut icon" type="image/png"/>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+    <script>
+        // Initialize Firebase
+        // TODO: Replace with your project's customized code snippet
+        var config = {
+          databaseURL: "https://rsvp-dbb88.firebaseio.com"
+        };
+        firebase.initializeApp(config);
+        var database = firebase.database();
+    </script>
+
+    <script>
+      var params = window.location.search.substr(1);
+      var visitorCode = params.replace("code=", "");
+
+      firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
+        var visitor = snapshot.val();
+        var names = visitor.names;
+
+        var attendeesList = document.getElementById("guest-responses");
+        for(var i = 0; i < names.length; i++){
+
+          var mainDiv = document.createElement("div");
+          mainDiv.className = "guest" + i+1;
+
+          var para = document.createElement("p");
+          var node = document.createTextNode(names[i]);
+          para.appendChild(node);
+
+          var yesButton = document.createElement("button");
+          yesButton.innerHTML = "Yes";
+          yesButton.setAttribute('id', names[i]+"-yes");
+
+          var noButton = document.createElement("button");
+          noButton.innerHTML = "No";
+          noButton.setAttribute('id', names[i]+"-yes");
+
+          mainDiv.appendChild(para);
+          mainDiv.appendChild(yesButton);
+          mainDiv.appendChild(noButton);
+          attendeesList.insertBefore(mainDiv, document.getElementById("no-responses-yet"));
+
+          console.log("Done");
+        }
+
+      });
+    </script>
   </head>
   <body class='body'>
 <!-- background video -->
@@ -45,18 +93,8 @@
                <p>Oldehove, The Netherlands</p>
                <h3>Are you coming?</h3>
              </div>
-              <div class="guest-responses">
-                <div class="guest1">
-                  <p>Babette van Son</p>
-                  <button type="button">yes</button>
-                  <button type="button">no</button>
-                </div>
-                <div class="guest2">
-                  <p>Robert van Baraneveld</p>
-                  <button type="button">yes</button>
-                  <button type="button">no</button>
-                </div>
-                <div class="no-responses-yet">
+              <div id="guest-responses" class="guest-responses">
+                <div id="no-responses-yet" class="no-responses-yet">
                   <h3>We kindly ask you to respond by March 28, 2018.</h3>
                 </div>
                 <div class="bummer">
