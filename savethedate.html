@@ -68,7 +68,6 @@
 
       function openRsvp(){
         console.log("1");
-        setTimeout(function(){
           console.log("2");
 
                   visitorCode = document.getElementById("code-input").value;
@@ -87,7 +86,6 @@
             window.location.replace("/rsvp.html?code="+visitorCode);
           }
         });
-        }, 1000);
     }
     </script>
   </head>
@@ -136,7 +134,7 @@
               <br>
             <input class="input-box" type="text" id="code-input" value="" placeholder="code">
               <br>
-            <input id="take-me-in-btn" type="submit" onclick="openRsvp()" value="Take me in!">
+            <input id="take-me-in-btn" onclick="openRsvp()" value="Take me in!">
           </form>
         </div>
     </div>
