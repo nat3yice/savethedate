@@ -20,7 +20,6 @@
     <div id="content">
         doe;jane@doe.com, JOHN@doe.com; JANE doe, john doe, baby doe;true
         trump;donald@trump.gov; donald trump;false
-        bui;nathan@bui.com
     </div>
 
     <script>
@@ -32,6 +31,14 @@
             }
             return names;
         }
+
+        function convertToNameObjects(nameArray){
+            for(var i = 0; i < nameArray.length; i++) {
+                nameArray[i] = {"name": nameArray[i]};
+            }
+            return nameArray;
+        }
+
             var data = document.getElementById("content").textContent;
             var lines = data.split("\n");
             for(var i =0; i < lines.length; i++){
@@ -48,7 +55,7 @@
                     }
                     var key = elements[0].trim();
                     var emails = extractFromList(elements[1]);
-                    var names = extractFromList(elements[2]);
+                    var names = convertToNameObjects(extractFromList(elements[2]));
                     var isAmerican = (elements[3] == 'true');
                     console.log('saving ', key);
                     firebase.database().ref('attendees/' + key).set({
