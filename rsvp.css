@@ -84,7 +84,7 @@ img {
 }
 .modal .closebtn {
     position: absolute;
-    top: -6%;
+    top: -5%;
     right: .5%;
     font-size: 100px;
     background-color: transparent;
@@ -252,6 +252,7 @@ it's now time to R.S.V.P. */
   margin-top: 23px;
   margin-bottom: 10px;
     overflow: hidden;
+
 }
 
 .switch-title {
@@ -464,7 +465,7 @@ by March 10, 2018. */
   margin-top: 40px;
 }
 .hayemaheerd-pic {
-  width: 100%;
+  width: 100.1%;
 }
 
 /* Hayema Heerd */
@@ -949,7 +950,7 @@ The Netherlands */
 .charlotte > h1, .eline > h1 {
   font-size: 31px;
   letter-spacing: 1.55px;
-  margin-top: 28px;
+  margin-top: 20px;
 }
 .phone-container {
   margin-top: 13px;
@@ -1102,7 +1103,7 @@ The Netherlands */
   margin-top: 52px;
 }
 .closing-img {
-  width: 100%;
+  width: 100.1%;
 }
 
 .modal__footer {
@@ -1170,9 +1171,285 @@ The Netherlands */
 @media
   only screen
   and (max-width : 330px) {
-
+.modal .closebtn {
+  top: -51px;
+  right: -1.5%;
+  font-size: 89;
+}
+/* logo */
+    .modal__header {
+      margin-top: 40px;
+    }
+/* You're invited! Yay! */
+    .yay > h1 {
+    font-size: 28px;
+    margin-top: 20px;
+  }
+/* welcome to our wedding website... */
+    .yay > p:nth-of-type(1) {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+/* June 30th, 2018 */
+  .yay > h2 {
+    font-size: 30px;
+    margin-top: 70px;
+  }
+/* Oldehove, The Netherlands */
+  .yay > p:nth-of-type(2) {
+    font-size: 14px;
+    letter-spacing: 1.8px;
+    margin-top: 5px;
+  }
+/* Are you coming? */
+  .yay h3 {
+    font-size: 20px;
+    margin-top: 70px;
+  }
+/* guest response section */
+.guest-responses {
+  margin-top: 30px;
+}
+/* names */
+.switch-title {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+.switch-field {
+  margin-top: 15px;
+}
+/* buttons */
+.switch-field label {
+  font-size: 20px;
+  font-weight: lighter;
+  margin: 0px 3px;
+  padding: 10px 45px;
+}
+/* we kindly ask you to respond by... */
+.no-responses-yet > h3 {
+  font-size: 16px;
+  line-height: 150%;
+}
+/* Bummer! & That's sweet of you  */
+.bummer-header, .thats-sweet-header {
+  font-size: 36px;
+  margin-top: 80px;
+}
+/* too bad you cant make it..... / come visit us soon! */
+.bummer-msg, .thats-sweet-msg {
+  font-size: 13px;
+  margin-top: 20px;
+}
+.bummer > button {
+  font-size: 18px;
+}
+/* Below you'll find more info */
+.guest-responses > h4 {
+  font-size: 20px;
+  margin-top: 40px;
+}
+/* So happy you're coming! */
+.so-happy-response > h1 {
+  font-size: 28px;
+  margin-top: 40px;
+}
+/* below you'll find all the info you need */
+.so-happy-response > h2 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+/* If you're still curious */
+.still-curious > h1 {
+  font-size: 28px;
+  margin-top: 40px;
+}
+/* you can still take a peek at our schedule */
+.still-curious > h2 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+/* Venue Title */
+.venue-header {
+  font-size: 35px;
+  margin-top: 50px;
+}
+.underline-venue {
+  width: 85px;
+  margin-top: 1px;
+}
+/* Venue JPEG */
+.venue-img {
+  margin-top: 25px;
 }
 
+/* Hayema Heerd */
+.venue-name {
+  font-size: 26px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+/* Jensemaweg 3
+9883 TH Oldehove
+The Netherlands */
+.venue-address {
+  margin-top: 20px;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+/* venue desription */
+.venue-description {
+  margin-top: 20px;
+  font-size: 16px;
+}
+/* schedule */
+.schedule-header {
+  font-size: 35px;
+  letter-spacing: 1px;
+  margin-top: 50px;
+}
+.underline-schedule {
+  width: 130px;
+  margin-top: 1px;
+}
+/* June 30th, 2018 */
+.schedule-date {
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-top: 50px;
+}
+.schedule-img {
+  margin-top: 30px;
+}
+/* schedule notes * ** */
+.schedule-arrivaltime-notes {
+  font-size: 15px;
+  margin-top: 30px;
+}
+/* accomodation */
+.accomodation-header {
+  font-size: 35px;
+  letter-spacing: 1px;
+  margin-top: 50px;
+}
+/* underline accomodation */
+.underline-accomodation {
+  width: 210px;
+  margin-top: 1x;
+  height: 1px;
+}
+/* since your venue is situated.... */
+.accomodation-message {
+  font-size: 17px;
+  margin-top: 30px;
+}
+.textbox-sharingroom {
+  font-size: 15px;
+  max-height: 145px;
+}
+
+.team-header {
+  font-size: 35px;
+  margin-top: 100px;
+  letter-spacing: 1px;
+}
+.underline-team {
+  max-width: 220px;
+  margin-top: 1px;
+}
+/* We are very pleased to tell.... */
+.team-msg {
+  font-size: 17px;
+  margin-top: 30px;
+}
+.charlotte {
+  grid-column: 1 / 3;
+}
+.eline {
+  grid-column: 1 / 3;
+  margin-top: 60px;
+}
+.charlotte > h1, .eline > h1 {
+  font-size: 28px;
+  margin-top: 10px;
+}
+.phone-container {
+  margin-top: 7px;
+}
+.team-email {
+  font-size: 17px;
+}
+.song-request-header {
+  font-size: 35px;
+  margin-top: 50px;
+}
+.underline-song {
+  max-width: 210px;
+  margin-top: 1px;
+}
+/* We wanted everyone to enjoy... */
+.song-request-msg {
+  margin-top: 30px;
+  font-size: 17px;
+  text-align: justify;
+}
+.song-request-input {
+  margin-top: 35px;
+}
+.request1 > input, .request2 > input,
+.request3 > input, .request4 > input,
+.request5 > input, .request6 > input,
+.request7 > input, .request8 > input  {
+  width: auto;
+  height: 40px;
+  font-size: 18px;
+  padding: 10px 24px;
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* wedding registy section */
+.registry-header {
+  font-size: 35px;
+  margin-top: 50px;
+}
+.underline-registry {
+  width: 265px;
+  margin-top: 1px;
+}
+.registry-msg {
+  font-size: 17px;
+  margin-top: 30px;
+}
+.linebreak-closing {
+  width: 180px;
+  margin-bottom: 50px;
+}
+/* we are super excited, Love Nathan and Nikita */
+.closing-msg {
+  margin-top: 50px;
+  font-size: 18px;
+  line-height: 250%;
+}
+.closing-img-container {
+  margin-top: 20px;
+}
+.modal__footer {
+  margin-top: 40px;
+}
+.footer {
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 200%;
+}
+#rsvp-request {
+  margin-top: 20px;
+}
+.footer > button {
+  margin-bottom: 15px;
+}
+
+}
 /* iphone 6 and medium screens */
 
 @media
@@ -1189,7 +1466,7 @@ The Netherlands */
   and (min-width : 376px)
   and (max-width : 766px) {
     .yay > h1 {
-    font-size: 55px;
+    font-size: 32px;
   }
     .yay > p:nth-of-type(1) {
     font-size: 19px;
