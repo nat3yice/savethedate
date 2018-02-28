@@ -67,22 +67,25 @@
       }
 
       function openRsvp(){
-        visitorCode = document.getElementById("code-input").value;
+        console.log("1");
+          console.log("2");
+
+                  visitorCode = document.getElementById("code-input").value;
         if(visitorCode.length < 1){
             alert("Please use your code!");
             return;
         }
 
         firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
-        visitor = snapshot.val();
-        var visitorEmail = document.getElementById("email-input").value;
-        if (!validateVisitor(visitor, visitorEmail)) {
-          alert("Invalid credentials");
-        }
-        else{
-          window.location.replace("/rsvp.html?code="+visitorCode);
-        }
-      });
+          visitor = snapshot.val();
+          var visitorEmail = document.getElementById("email-input").value;
+          if (!validateVisitor(visitor, visitorEmail)) {
+            alert("Invalid credentials");
+          }
+          else{
+            window.location.replace("/rsvp.html?code="+visitorCode);
+          }
+        });
     }
     </script>
   </head>
@@ -131,7 +134,7 @@
               <br>
             <input class="input-box" type="text" id="code-input" value="" placeholder="code">
               <br>
-            <input id="take-me-in-btn" type="submit" onclick="openRsvp()" value="Take me in!">
+            <input id="take-me-in-btn" onclick="openRsvp()" value="Take me in!">
           </form>
         </div>
     </div>
