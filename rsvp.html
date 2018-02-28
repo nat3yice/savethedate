@@ -75,7 +75,7 @@
       visitor.message = document.getElementById("textbox-bummer").value;
       visitor.accomodationMessage = document.getElementById("sharingroomwith").value;
       console.log(visitor);
-      // database.ref('attendees/' + visitorCode).set(visitor);
+      database.ref('attendees/' + visitorCode).set(visitor);
 
     }
 
