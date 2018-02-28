@@ -41,9 +41,15 @@
       document.getElementById(modalName).style.display = "none";
     }
 
-    function saveAndCloseNav(){
 
+
+    function saveAndCloseNav(){
       closeModal("myNav");
+      save();
+
+    }
+
+    function save(){
 
       //send firebase data.
       visitor["responded"] = true;
@@ -129,6 +135,8 @@
     function sorryMessage(){
       closeModal("bummer-message");
       openModal("coming-thanks");
+
+      save();
     }
 
       function checkAttendees() {
@@ -542,6 +550,10 @@
       closeModal("so-happy-response");
       closeModal("still-curious");
       // closeModal("no-decision");
+
+      function closeNav() {
+        document.getElementById("myNav").style.display = "none";
+      } 
      </script>
   </body>
 </html>

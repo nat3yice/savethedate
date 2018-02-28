@@ -55,7 +55,12 @@
       }
 
       function validateVisitor(visitor, email) {
-        if (visitor === null || visitor.emails.indexOf(email) < 0) {
+        var lowercaseEmails = visitor.emails;
+        for(var i = 0; i < lowercaseEmails.length; i++){
+          lowercaseEmails[i] = lowercaseEmails[i].toLowerCase();
+        }
+
+        if (visitor === null || lowercaseEmails.indexOf(email.toLowerCase()) < 0) {
             return false;
         }
         return true;
