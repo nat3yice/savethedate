@@ -21,8 +21,6 @@
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 
     <script>
-        // Initialize Firebase
-        // TODO: Replace with your project's customized code snippet
         var config = {
           databaseURL: "https://rsvp-dbb88.firebaseio.com"
         };
@@ -67,7 +65,7 @@
         names.push({"name" : name, "coming": input.checked});
       }
 
-      visitor.names = names; //TODO
+      visitor.names = names; 
       visitor.message = document.getElementById("textbox-bummer").value;
       visitor.accomodationMessage = document.getElementById("sharingroomwith").value;
       console.log(visitor);
