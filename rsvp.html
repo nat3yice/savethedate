@@ -248,9 +248,20 @@
         }
       }
 
+      function checkAlreadyRegistered(){
+        if(visitor.responded !== null && visitor.responded === true) {
+          var alreadyRegistered = document.getElementById("alreadyRegistered");
+          var warning = document.createElement("p");
+          warning.innerHTML = "You are already RSVPed! You can fill a new RSVP is some of your information has changed";
+
+          alreadyRegistered.appendChild(warning);
+        }
+      }
+
       firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
         visitor = snapshot.val();
 
+        checkAlreadyRegistered();
         generateAttendeesList(visitor.names);
         generateSongList(visitor.names);
 
@@ -271,6 +282,7 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 <!-- background of foreground modal :) -->
       <div class="white_background">
+          <div id="alreadyRegistered"></div>
           <div class="modal__header">
             <a href=""><img href="" src="img-vid/temp-logo.png"></img></a>
           </div>
