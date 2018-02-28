@@ -43,10 +43,36 @@
       document.getElementById(modalName).style.display = "none";
     }
 
-    function SaveAndCloseNav(){
-      //TODO: Send to firebase
+    function saveAndCloseNav(){
 
       closeModal("myNav");
+
+      //send firebase data.
+      visitor["responded"] = true;
+      visitor["accomodation"] = accomodation;
+
+      var songInputs = document.getElementsByClassName("title");
+      var artistInputs = document.getElementsByClassName("artist");
+
+      var songs = [];
+      for(var i = 0; i < visitor.names.length; i++){
+        songs.push([songInputs[i].value, artistInputs[i].value]);
+      }
+      visitor["songs"] = songs;
+
+      var names = [];
+      for(var i = 0; i < visitor.names.length; i++){
+        var name = visitor.names[i];
+        var input = document.getElementById(name+" yes");
+        names.push({"name" : name, "coming": input.checked});
+      }
+
+      visitor.names = names; //TODO
+      visitor.message = document.getElementById("textbox-bummer").value;
+      visitor.accomodationMessage = document.getElementById("sharingroomwith").value;
+      console.log(visitor);
+      // database.ref('attendees/' + visitorCode).set(visitor);
+
     }
 
     function changeSongs(trueOrFalse){
@@ -268,7 +294,7 @@
                         message for the guestbook!
                     </div>
                     <div class="textbox-bummer-container">
-                      <textarea class="textbox-bummer" name="sharingroomwith" cols="40" rows="5"
+                      <textarea class="textbox-bummer" id="textbox-bummer" name="sharingroomwith" cols="40" rows="5"
                         placeholder=""
                       ></textarea>
                     </div>
@@ -506,7 +532,7 @@
         <div class="footer">
           <div id="rsvp-auto-save">Your R.S.V.P. is automatically saved.</div>
           <div id="rsvp-request">We kindly ask you to make final decisions by March 26, 2018.</div>
-          <button type="button" id="close-end-btn" onclick="SaveAndCloseNav()">Close</button>
+          <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Close</button>
         </div>
       </div>
     </div>
