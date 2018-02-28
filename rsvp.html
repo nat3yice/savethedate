@@ -71,7 +71,7 @@
         names.push({"name" : name, "coming": input.checked});
       }
 
-      visitor.names = names; 
+      visitor.names = names;
       visitor.message = document.getElementById("textbox-bummer").value;
       visitor.accomodationMessage = document.getElementById("sharingroomwith").value;
       console.log(visitor);
@@ -80,7 +80,7 @@
     }
 
     function changeSongs(trueOrFalse){
-      var songDiv = document.getElementById("song-request-input");  
+      var songDiv = document.getElementById("song-request-input");
       var songsAndArtists = songDiv.getElementsByTagName("input");
 
       for(var i = 0; i < songsAndArtists.length; i++){
@@ -317,7 +317,7 @@
                         placeholder=""
                       ></textarea>
                     </div>
-                    <button class="bummer-btn" type="submit" onclick="sorryMessage()" value="Submit">send</button>
+                    <button class="bummer-btn" onclick="sorryMessage()" value="Submit">send</button>
                   </div>
                   <div id="coming-thanks">
                     <div class="thats-sweet-header">That's sweet of you
@@ -459,7 +459,7 @@
                  </div>
                  <div class="hotel-link"><a href="https://www.bestwestern.com/en_US/book/hotel-details.92722.html" target="_blank">more info</a>
                  </div>
-                 <button class="hotel-btn button-active" type="button" id="iWantHotel" onClick="iWantHotel()">Book me a room</button>
+                 <a class="hotel-btn button-active" type="button" id="iWantHotel" onClick="iWantHotel()">Book me a room</button>
                  <div class="textbox-sharingroom-container">
                    <textarea id="sharingroomwith" class="textbox-sharingroom" name="sharingroomwith" cols="40" rows="5"
                      placeholder="Please tell us if you'd like only Saturday or both Friday and Saturday. And if you're sharing a room please tell us the names of your roomates..."
@@ -510,7 +510,7 @@
              What better way of doing that than to your favorite song?
                </div>
                <div id="song-request-input" class="song-request-input">
-                 <!-- List of songs is generated here --> 
+                 <!-- List of songs is generated here -->
               </div>
             </div>
 <!-- wedding registry section -->
@@ -565,7 +565,7 @@
 
       function closeNav() {
         document.getElementById("myNav").style.display = "none";
-      } 
+      }
      </script>
   </body>
 </html>

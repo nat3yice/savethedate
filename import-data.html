@@ -20,6 +20,7 @@
     <div id="content">
         doe;jane@doe.com, JOHN@doe.com; JANE doe, john doe, baby doe;true
         trump;donald@trump.gov; donald trump;false
+        lengrand;jrlengrand@something.fr,nolwenn@something.fr;nolwenn lastname, Julien Lengrand, Eclipse;true
     </div>
 
     <script>
@@ -49,7 +50,7 @@
                 else{
                     console.log(line);
                     var elements = line.split(";");
-                    if(elements.length !=4 ) { 
+                    if(elements.length !=4 ) {
                         console.log('following line is not correctly formatted, skipping : ',  line);
                         continue;
                     }
@@ -63,7 +64,7 @@
                         names: names,
                         isAmerican : isAmerican
                     });
-                    
+
                 }
             }
             alert("Finito!");
