@@ -31,38 +31,108 @@
     </script>
 
     <script>
+
       var params = window.location.search.substr(1);
       var visitorCode = params.replace("code=", "");
+      var visitor = null;
 
-      firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
-        var visitor = snapshot.val();
-        var names = visitor.names;
+    function openModal(modalName) {
+      document.getElementById(modalName).style.display = "block";
+    }
+    function closeModal(modalName) {
+      document.getElementById(modalName).style.display = "none";
+    }
 
+    function sorryMessage(){
+      closeModal("bummer-message");
+      openModal("coming-thanks");
+    }
+
+      function checkAttendees() {
+        var listModal = document.getElementById("guest-responses");
+        var checkBoxes = listModal.getElementsByTagName("input");
+        var numberCheckboxes = checkBoxes.length;
+        var numberChecked = 0;
+        var hasYeses = false;
+        for (var i = 0; i < numberCheckboxes; i++) {
+          if (checkBoxes[i].checked) {
+            numberChecked++;
+            if (checkBoxes[i].value === "yes") {
+              hasYeses = true;
+            }
+          }
+        }
+        //All answered
+        if (numberChecked * 2 >= numberCheckboxes) {
+          console.log("Complete!");
+          if (!hasYeses) {
+            openModal("bummer-message");
+            openModal("still-curious");
+            closeModal("no-decision");
+          }
+          else{
+            // enableAll();
+
+            openModal("so-happy-response");
+            closeModal("no-decision");
+          }
+        }
+        else {
+          console.log("More to go!");
+        }
+    }
+
+      function generateAttendeesList(names){
         var attendeesList = document.getElementById("guest-responses");
         for(var i = 0; i < names.length; i++){
 
           var mainDiv = document.createElement("div");
-          mainDiv.className = "guest" + i+1;
+          mainDiv.className = "switch-field";
 
-          var para = document.createElement("p");
-          var node = document.createTextNode(names[i]);
-          para.appendChild(node);
+          var nameDiv = document.createElement("div");
+          nameDiv.className = "switch-title";
+          nameDiv.innerHTML = names[i];
 
-          var yesButton = document.createElement("button");
-          yesButton.innerHTML = "Yes";
-          yesButton.setAttribute('id', names[i]+"-yes");
+          var yesInput = document.createElement("input");
+          yesInput.setAttribute('type',"radio");
+          yesInput.setAttribute('name', names[i] + " yes");
+          yesInput.setAttribute('id', names[i]+" yes");
+          yesInput.setAttribute('value', "yes");
+          yesInput.setAttribute('onClick', "checkAttendees()");
+          yesInput.innerHTML = "yes";
 
-          var noButton = document.createElement("button");
-          noButton.innerHTML = "No";
-          noButton.setAttribute('id', names[i]+"-yes");
+          var yesLabel = document.createElement("label");
+          yesLabel.setAttribute('for', names[i] + " yes");
+          yesLabel.innerHTML = "yes";
 
-          mainDiv.appendChild(para);
-          mainDiv.appendChild(yesButton);
-          mainDiv.appendChild(noButton);
-          attendeesList.insertBefore(mainDiv, document.getElementById("no-responses-yet"));
+          var noInput = document.createElement("input");
+          noInput.setAttribute('type',"radio");
+          noInput.setAttribute('name', names[i]+" no");
+          noInput.setAttribute('id', names[i]+" no");
+          noInput.setAttribute('value', "no");
+          noInput.setAttribute('onClick', "checkAttendees()");
+          noInput.innerHTML = "no";
+
+          var noLabel = document.createElement("label");
+          noLabel.setAttribute('for', names[i]+" no");
+          noLabel.innerHTML = "no";
+
+          mainDiv.appendChild(nameDiv);
+          mainDiv.appendChild(yesInput);
+          mainDiv.appendChild(yesLabel);
+          mainDiv.appendChild(noInput);
+          mainDiv.appendChild(noLabel);
+
+          attendeesList.appendChild(mainDiv);
 
           console.log("Done");
         }
+      }
+
+      firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
+        visitor = snapshot.val();
+
+        generateAttendeesList(visitor.names);
 
       });
     </script>
@@ -93,35 +163,42 @@
                <p>Oldehove, The Netherlands</p>
                <h3>Are you coming?</h3>
              </div>
-              <div id="guest-responses" class="guest-responses">
-                <div id="no-responses-yet" class="no-responses-yet">
+              <div class="guest-responses">
+                <div id="guest-responses">
+                  <!-- Generated Yes No list goes here -->
+                </div>
+                <div class="no-responses-yet">
                   <h3>We kindly ask you to respond by March 28, 2018.</h3>
                 </div>
                 <div class="bummer">
-                  <div class="bummer-header">Bummer!
+                  <div id="bummer-message">
+                    <div class="bummer-header">Bummer!
+                    </div>
+                    <div class="bummer-msg">Too bad you can’t make it,
+                      we’ll miss you! You can still leave a
+                        message for the guestbook!
+                    </div>
+                    <div class="textbox-bummer-container">
+                      <textarea class="textbox-bummer" name="sharingroomwith" cols="40" rows="5"
+                        placeholder=""
+                      ></textarea>
+                    </div>
+                    <button class="bummer-btn" type="submit" onclick="sorryMessage()" value="Submit">send</button>
                   </div>
-                  <div class="bummer-msg">too bad you can’t make it,
-                     we’ll miss you!</br>you can still leave a
-                      message for the guestbook!
-                  </div>
-                  <div class="textbox-bummer-container">
-                    <textarea class="textbox-bummer" name="sharingroomwith" cols="40" rows="5"
-                      placeholder=""
-                    ></textarea>
-                  </div>
-                  <button class="bummer-btn" type="submit" form="" value="Submit">send</button>
-                  <div class="thats-sweet-header">That's sweet of you
-                  </div>
-                  <div class="thats-sweet-msg">thanks again! and visit us soon!
+                  <div id="coming-thanks">
+                    <div class="thats-sweet-header">That's sweet of you
+                    </div>
+                    <div class="thats-sweet-msg">thanks again! and visit us soon!
+                    </div>
                   </div>
                 </div>
                 <hr class="greetings-line-break"></hr>
-                <h4>Below you'll find more info</h4>
-                <div class="so-happy-response">
+                <h4 id="no-decision">Below you'll find more info</h4>
+                <div id="so-happy-response" class="so-happy-response">
                   <h1>So happy you're coming!</h1>
                   <h2>below you'll find all the info you need</h2>
                 </div>
-                <div class="still-curious">
+                <div id="still-curious" class="still-curious">
                   <h1>If you're curious</h1>
                   <h2>you can still take a peek at our schedule</h2>
                 </div>
@@ -296,7 +373,6 @@
               </div>
               <div class="song-request-msg">
                We want everyone to enjoy the party and dance the night away.
-               </br>
              What better way of doing that than to your favorite song?
                </div>
                <div class="song-request-input">
@@ -377,12 +453,12 @@
       </div>
     </div>
     <script>
-      function openNav() {
-        document.getElementById("myNav").style.display = "block";
-}
-      function closeNav() {
-        document.getElementById("myNav").style.display = "none";
-}
+
+      closeModal("bummer-message");
+      closeModal("coming-thanks");
+      closeModal("so-happy-response");
+      closeModal("still-curious");
+      // closeModal("no-decision");
      </script>
   </body>
 </html>

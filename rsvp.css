@@ -84,7 +84,7 @@ img {
 }
 .modal .closebtn {
     position: absolute;
-    top: -6%;
+    top: -5%;
     right: .5%;
     font-size: 100px;
     background-color: transparent;
@@ -165,6 +165,7 @@ input:focus {outline:0;}
   overflow-y: auto;
   grid-template-columns: 1fr 10fr 1fr;
   grid-auto-rows: auto;
+  align-self: center;
 }
 /* MODAL HEADER AKA LOGO */
 .modal__header {
@@ -198,7 +199,7 @@ input:focus {outline:0;}
 }
 /* You're invited! Yay! */
 .yay > h1 {
-  font-size: 64px;
+  font-size: 52px;
   font-weight: normal;
   margin-top: 40px;
   letter-spacing: 2.33px;
@@ -207,16 +208,16 @@ input:focus {outline:0;}
 /* welcome to our wedding website...
 it's now time to R.S.V.P. */
 .yay > p:nth-of-type(1) {
-  font-size: 21px;
+  font-size: 19px;
   line-height: 160%;
   font-weight: lighter;
-  margin-top: 30px;
+  margin-top: 10px;
   letter-spacing: 1px;
   color: #9B9B9B;
 }
 /* June 30th, 2018 */
 .yay > h2 {
-  font-size: 55px;
+  font-size: 48px;
   color: #50E3C2;
   margin-top: 100px;
   letter-spacing: 2.53px;
@@ -225,17 +226,18 @@ it's now time to R.S.V.P. */
 
 /* Oldehove, The Netherlands */
 .yay > p:nth-of-type(2) {
-  font-size: 22px;
+  font-size: 18px;
   margin-top: 10px;
   letter-spacing: 2.14px;
 }
 
 /* Are you coming? */
 .yay h3 {
-  font-size: 45px;
+  font-size: 23px;
   letter-spacing: 1px;
   margin-top: 100px;
   font-weight: normal;
+  color: #9B9B9B;
 }
 
 /* guest response section */
@@ -245,31 +247,68 @@ it's now time to R.S.V.P. */
   margin-top: 30px;
 }
 
-/* names of guests */
-.guest-responses p {
-  font-size: 32px;
-  letter-spacing: 1px;
-  font-weight: 300;
-  margin-top: 30px;
-  margin-bottom: 20px;
+/* RADIO BUTTONS STYLING */
+.switch-field {
+  margin-top: 23px;
+  margin-bottom: 10px;
+    overflow: hidden;
+
 }
 
-/* guest response buttons */
-.guest-responses button {
+.switch-title {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
+  float: center;
+}
+
+.switch-field label {
+  display: inline-block;
   width: auto;
   height: auto;
-  font-size: 30px;
-  color: #FFF;
   background-color: #929292;
-  border-radius: 5px;
-  padding: 10px 50px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
+  padding: 8px 40px;
   margin: 0px 10px;
   border: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition:    all 0.1s ease-in-out;
+  -ms-transition:     all 0.1s ease-in-out;
+  -o-transition:      all 0.1s ease-in-out;
+  transition:         all 0.1s ease-in-out;
 }
-.guest-responses button:hover {
-  color: #FFF;
-  background-color:#50E3C2;
+
+.switch-field label:hover {
+    cursor: pointer;
+    color: #FFF;
+    background-color:#50E3C2;
 }
+
+.switch-field input:checked + label {
+  background-color: #50E3C2;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.switch-field label {
+  border-radius: 5px;
+}
+
 
 /* We kindly ask you to respond
 by March 10, 2018. */
@@ -288,7 +327,7 @@ by March 10, 2018. */
 
 /* Bummer! & That's sweet of you  */
 .bummer-header, .thats-sweet-header {
-  font-size: 60px;
+  font-size: 48px;
   letter-spacing: 2.33px;
   color: #47E4C2;
   margin-top: 87px;
@@ -296,7 +335,7 @@ by March 10, 2018. */
 
 /* too bad you cant make it..... / come visit us soon! */
 .bummer-msg, .thats-sweet-msg {
-  font-size: 24px;
+  font-size: 20px;
   letter-spacing: 1px;
   margin-top: 32px;
   line-height: 160%;
@@ -321,10 +360,10 @@ by March 10, 2018. */
   box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.50);
 }
 
-.bummer > button {
+.bummer-btn {
   width: auto;
   height: auto;
-  font-size: 23px;
+  font-size: 20px;
   letter-spacing: 2.91px;
   color: #FFF;
   background-color: #50E3C2;
@@ -333,7 +372,7 @@ by March 10, 2018. */
   padding: 15px 42px;
   margin-top: 34px;
 }
-.bummer > button:hover {
+.bummer-btn:hover {
   color: #50E3C2;
   background-color: #fff;
   border: 2px solid #50E3C2;
@@ -354,7 +393,7 @@ by March 10, 2018. */
 
 /* Below you'll find more info */
 .guest-responses > h4 {
-  font-size: 50px;
+  font-size: 38px;
   margin-top: 60px;
   font-weight: normal;
   letter-spacing: 1px;
@@ -362,30 +401,32 @@ by March 10, 2018. */
 
 /* So happy you're coming! */
 .so-happy-response > h1 {
-  font-size: 60px;
+  font-size: 42px;
   letter-spacing: 2.33px;
   margin-top: 100px;
+  font-weight: lighter;
 }
 /* below you'll find all the info you need */
 .so-happy-response > h2 {
-  font-size: 24px;
+  font-size: 20px;
   letter-spacing: 1px;
-  margin-top: 40px;
+  margin-top: 23px;
   font-weight: lighter;
   color: #9B9B9B;
 }
 
 /* If you're still curious */
 .still-curious > h1 {
-  font-size: 60px;
+  font-size: 42px;
   letter-spacing: 2.33px;
   margin-top: 100px;
+  font-weight: lighter;
 }
 /* you can still take a peek at our schedule */
 .still-curious > h2 {
-  font-size: 24px;
+  font-size: 20px;
   letter-spacing: 1px;
-  margin-top: 40px;
+  margin-top: 23px;
   font-weight: lighter;
   color: #9B9B9B;
 }
@@ -402,7 +443,7 @@ by March 10, 2018. */
 .venue-header {
   grid-column: 2 / 3;
   text-align: center;
-  font-size: 45px;
+  font-size: 43px;
   margin-top: 70px;
 }
 .underline-venue {
@@ -421,18 +462,18 @@ by March 10, 2018. */
 .venue-img {
   grid-column: 1 / -1;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .hayemaheerd-pic {
-  width: 101%;
+  width: 100.1%;
 }
 
 /* Hayema Heerd */
 .venue-name {
   grid-column: 2 / 3;
   text-align: center;
-  font-size: 40px;
-  margin-top: 50px;
+  font-size: 38px;
+  margin-top: 40px;
   letter-spacing: 3.88px;
 }
 
@@ -442,17 +483,17 @@ The Netherlands */
 .venue-address {
   grid-column: 2 / 3;
   text-align: center;
-  margin-top: 50px;
-  font-size: 22px;
-  letter-spacing: 3px;
+  margin-top: 40px;
+  font-size: 20px;
+  letter-spacing: 2px;
   line-height: 160%;
 }
 
 /* venue desription */
 .venue-description {
   grid-column: 2 / 3;
-  margin-top: 50px;
-  font-size: 22px;
+  margin-top: 40px;
+  font-size: 20px;
   letter-spacing: 1px;
   line-height: 160%;
   text-align: justify;
@@ -469,7 +510,7 @@ The Netherlands */
 /* schedule */
 .schedule-header {
   grid-column: 2 / 3;
-  font-size: 45px;
+  font-size: 43px;
   letter-spacing: 2.33px;
   margin-top: 70px;
   text-align: center;
@@ -491,14 +532,14 @@ The Netherlands */
   grid-column: 2 / 3;
   font-size: 40px;
   letter-spacing: 2.6px;
-  margin-top: 70px;
+  margin-top: 50px;
   text-align: center;
   color: #50E3C2;
 }
 /* schedule timeline vector */
 .schedule-img {
   grid-column: 2 / 3;
-  margin-top: 70px;
+  margin-top: 50px;
   justify-content: center;
 }
 .svg-schedule {
@@ -527,7 +568,7 @@ The Netherlands */
 .accomodation-header {
   grid-column: 1 / -1;
   text-align: center;
-  font-size: 45px;
+  font-size: 43px;
   letter-spacing: 2.33px;
   margin-top: 70px;
 }
@@ -550,7 +591,7 @@ The Netherlands */
   font-size: 20px;
   letter-spacing: 1px;
   text-align: justify;
-  margin-top: 50px;
+  margin-top: 40px;
   line-height: 160%;
 }
 .accomodation-camp {
@@ -603,7 +644,7 @@ The Netherlands */
 .accomodation-camp > button {
   width: auto;
   height: auto;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   color: #FFF;
   background-color: #929292;
@@ -624,7 +665,7 @@ The Netherlands */
 /* book bed section */
 .accomodation-bookbed {
   grid-column: 2 / 3;
-  margin-top: 107px;
+  margin-top: 85px;
   text-align: center;
 }
 /* Book a bed at the venue */
@@ -686,7 +727,7 @@ The Netherlands */
 .accomodation-bookbed > button {
   width: auto;
   height: auto;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   color: #FFF;
   background-color: #929292;
@@ -707,7 +748,7 @@ The Netherlands */
 /* hotel section */
 .accomodation-hotel {
   grid-column: 2 / 3;
-  margin-top: 107px;
+  margin-top: 85px;
   text-align: center;
 }
 /* Best Western Hotel in Aduard */
@@ -784,7 +825,7 @@ The Netherlands */
 .accomodation-hotel > button {
   width: auto;
   height: auto;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   color: #FFF;
   background-color: #929292;
@@ -845,7 +886,7 @@ The Netherlands */
 .accomodation-nothanks > button {
   width: auto;
   height: auto;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   color: #FFF;
   background-color: #929292;
@@ -870,7 +911,7 @@ The Netherlands */
 .team-header {
   grid-column: 2 / 3;
   margin-top: 95px;
-  font-size: 45px;
+  font-size: 43px;
   letter-spacing: 2.33px;
 }
 .underline-team {
@@ -892,7 +933,7 @@ The Netherlands */
   font-size: 20px;
   letter-spacing: 1px;
   line-height: 160%;
-  margin-top: 46px;
+  margin-top: 40px;
 }
 .team-pics {
   grid-column: 2 / 3;
@@ -909,7 +950,7 @@ The Netherlands */
 .charlotte > h1, .eline > h1 {
   font-size: 31px;
   letter-spacing: 1.55px;
-  margin-top: 28px;
+  margin-top: 20px;
 }
 .phone-container {
   margin-top: 13px;
@@ -943,7 +984,7 @@ The Netherlands */
 /* Song request */
 .song-request-header {
   grid-column: 2 / 3;
-  font-size: 45px;
+  font-size: 43px;
   letter-spacing: 1px;
   margin-top: 95px;
 }
@@ -962,7 +1003,7 @@ The Netherlands */
 /* We wanted everyone to enjoy... */
 .song-request-msg {
   grid-column: 2 / 3;
-  margin-top: 46px;
+  margin-top: 40px;
   letter-spacing: 1px;
   font-size: 20px;
   line-height: 160%;
@@ -1005,9 +1046,9 @@ The Netherlands */
 /* Wedding registry */
 .registry-header {
   grid-column: 2 /3;
-  font-size: 45px;
+  font-size: 43px;
   letter-spacing: 2.33px;
-  margin-top: 155px;
+  margin-top: 100px;
 }
 .underline-registry {
   display: block;
@@ -1062,7 +1103,7 @@ The Netherlands */
   margin-top: 52px;
 }
 .closing-img {
-  width: 101%;
+  width: 100.1%;
 }
 
 .modal__footer {
@@ -1130,16 +1171,624 @@ The Netherlands */
 @media
   only screen
   and (max-width : 330px) {
-
+  .modal .closebtn {
+  top: -51px;
+  right: -1.5%;
+  font-size: 89;
+}
+/* logo */
+    .modal__header {
+      margin-top: 40px;
+    }
+/* You're invited! Yay! */
+    .yay > h1 {
+    font-size: 28px;
+    margin-top: 20px;
+  }
+/* welcome to our wedding website... */
+    .yay > p:nth-of-type(1) {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+/* June 30th, 2018 */
+  .yay > h2 {
+    font-size: 30px;
+    margin-top: 70px;
+  }
+/* Oldehove, The Netherlands */
+  .yay > p:nth-of-type(2) {
+    font-size: 14px;
+    letter-spacing: 1.8px;
+    margin-top: 5px;
+  }
+/* Are you coming? */
+  .yay h3 {
+    font-size: 20px;
+    margin-top: 70px;
+  }
+/* guest response section */
+.guest-responses {
+  margin-top: 30px;
+}
+/* names */
+.switch-title {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+.switch-field {
+  margin-top: 15px;
+}
+/* buttons */
+.switch-field label {
+  font-size: 20px;
+  font-weight: lighter;
+  margin: 0px 3px;
+  padding: 10px 45px;
+}
+/* we kindly ask you to respond by... */
+.no-responses-yet > h3 {
+  font-size: 16px;
+  line-height: 150%;
+}
+/* Bummer! & That's sweet of you  */
+.bummer-header, .thats-sweet-header {
+  font-size: 36px;
+  margin-top: 80px;
+}
+/* too bad you cant make it..... / come visit us soon! */
+.bummer-msg, .thats-sweet-msg {
+  font-size: 13px;
+  margin-top: 20px;
+}
+.bummer > button {
+  font-size: 18px;
+}
+/* Below you'll find more info */
+.guest-responses > h4 {
+  font-size: 20px;
+  margin-top: 40px;
+}
+/* So happy you're coming! */
+.so-happy-response > h1 {
+  font-size: 28px;
+  margin-top: 40px;
+}
+/* below you'll find all the info you need */
+.so-happy-response > h2 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+/* If you're still curious */
+.still-curious > h1 {
+  font-size: 28px;
+  margin-top: 40px;
+}
+/* you can still take a peek at our schedule */
+.still-curious > h2 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+/* Venue Title */
+.venue-header {
+  font-size: 35px;
+  margin-top: 50px;
+}
+.underline-venue {
+  width: 85px;
+  margin-top: 1px;
+}
+/* Venue JPEG */
+.venue-img {
+  margin-top: 25px;
 }
 
+/* Hayema Heerd */
+.venue-name {
+  font-size: 26px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+/* Jensemaweg 3
+9883 TH Oldehove
+The Netherlands */
+.venue-address {
+  margin-top: 20px;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+/* venue desription */
+.venue-description {
+  margin-top: 20px;
+  font-size: 16px;
+}
+/* schedule */
+.schedule-header {
+  font-size: 35px;
+  letter-spacing: 1px;
+  margin-top: 50px;
+}
+.underline-schedule {
+  width: 130px;
+  margin-top: 1px;
+}
+/* June 30th, 2018 */
+.schedule-date {
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-top: 50px;
+}
+.schedule-img {
+  margin-top: 30px;
+}
+/* schedule notes * ** */
+.schedule-arrivaltime-notes {
+  font-size: 15px;
+  margin-top: 30px;
+}
+/* accomodation */
+.accomodation-header {
+  font-size: 35px;
+  letter-spacing: 1px;
+  margin-top: 50px;
+}
+/* underline accomodation */
+.underline-accomodation {
+  width: 210px;
+  margin-top: 1x;
+  height: 1px;
+}
+/* since your venue is situated.... */
+.accomodation-message {
+  font-size: 17px;
+  margin-top: 30px;
+}
+.textbox-sharingroom {
+  font-size: 15px;
+  max-height: 145px;
+}
+
+.team-header {
+  font-size: 35px;
+  margin-top: 100px;
+  letter-spacing: 1px;
+}
+.underline-team {
+  max-width: 220px;
+  margin-top: 1px;
+}
+/* We are very pleased to tell.... */
+.team-msg {
+  font-size: 17px;
+  margin-top: 30px;
+}
+.charlotte {
+  grid-column: 1 / 3;
+}
+.eline {
+  grid-column: 1 / 3;
+  margin-top: 60px;
+}
+.charlotte > h1, .eline > h1 {
+  font-size: 28px;
+  margin-top: 10px;
+}
+.phone-container {
+  margin-top: 7px;
+}
+.team-email {
+  font-size: 17px;
+}
+.song-request-header {
+  font-size: 35px;
+  margin-top: 50px;
+}
+.underline-song {
+  max-width: 210px;
+  margin-top: 1px;
+}
+/* We wanted everyone to enjoy... */
+.song-request-msg {
+  margin-top: 30px;
+  font-size: 17px;
+  text-align: justify;
+}
+.song-request-input {
+  margin-top: 35px;
+}
+.request1 > input, .request2 > input,
+.request3 > input, .request4 > input,
+.request5 > input, .request6 > input,
+.request7 > input, .request8 > input  {
+  width: auto;
+  height: 40px;
+  font-size: 18px;
+  padding: 10px 24px;
+  margin-top: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* wedding registy section */
+.registry-header {
+  font-size: 35px;
+  margin-top: 50px;
+}
+.underline-registry {
+  width: 265px;
+  margin-top: 1px;
+}
+.registry-msg {
+  font-size: 17px;
+  margin-top: 30px;
+}
+.linebreak-closing {
+  width: 180px;
+  margin-bottom: 50px;
+}
+/* we are super excited, Love Nathan and Nikita */
+.closing-msg {
+  margin-top: 50px;
+  font-size: 18px;
+  line-height: 250%;
+}
+.closing-img-container {
+  margin-top: 20px;
+}
+.modal__footer {
+  margin-top: 40px;
+}
+.footer {
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 200%;
+}
+#rsvp-request {
+  margin-top: 20px;
+}
+.footer > button {
+  margin-bottom: 15px;
+}
+
+}
 /* iphone 6 and medium screens */
 
 @media
   only screen
   and (min-width : 331px)
   and (max-width : 375px) {
+    .modal .closebtn {
+    top: -50px;
+    right: -1%;
+    font-size: 89;
+  }
+  /* logo */
+      .modal__header {
+        margin-top: 40px;
+      }
+  /* You're invited! Yay! */
+      .yay > h1 {
+      font-size: 30px;
+      margin-top: 20px;
+    }
+  /* welcome to our wedding website... */
+      .yay > p:nth-of-type(1) {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  /* June 30th, 2018 */
+    .yay > h2 {
+      font-size: 33px;
+      margin-top: 70px;
+    }
+  /* Oldehove, The Netherlands */
+    .yay > p:nth-of-type(2) {
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      margin-top: 5px;
+    }
+  /* Are you coming? */
+    .yay h3 {
+      font-size: 22px;
+      margin-top: 70px;
+    }
+  /* guest response section */
+  .guest-responses {
+    margin-top: 30px;
+  }
+  /* names */
+  .switch-title {
+    font-size: 27px;
+    margin-bottom: 8px;
+  }
+  .switch-field {
+    margin-top: 15px;
+  }
+  /* buttons */
+  .switch-field label {
+    font-size: 20px;
+    font-weight: lighter;
+    margin: 0px 3px;
+    padding: 10px 45px;
+  }
+  /* we kindly ask you to respond by... */
+  .no-responses-yet > h3 {
+    font-size: 18px;
+    line-height: 150%;
+  }
+  /* Bummer! & That's sweet of you  */
+  .bummer-header, .thats-sweet-header {
+    font-size: 38px;
+    margin-top: 80px;
+  }
+  /* too bad you cant make it..... / come visit us soon! */
+  .bummer-msg, .thats-sweet-msg {
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  .bummer > button {
+    font-size: 18px;
+  }
+  /* Below you'll find more info */
+  .guest-responses > h4 {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+  /* So happy you're coming! */
+  .so-happy-response > h1 {
+    font-size: 30px;
+    margin-top: 40px;
+  }
+  /* below you'll find all the info you need */
+  .so-happy-response > h2 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  /* If you're still curious */
+  .still-curious > h1 {
+    font-size: 28px;
+    margin-top: 40px;
+  }
+  /* you can still take a peek at our schedule */
+  .still-curious > h2 {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  /* Venue Title */
+  .venue-header {
+    font-size: 35px;
+    margin-top: 50px;
+  }
+  .underline-venue {
+    width: 85px;
+    margin-top: 1px;
+  }
+  /* Venue JPEG */
+  .venue-img {
+    margin-top: 25px;
+  }
 
+  /* Hayema Heerd */
+  .venue-name {
+    font-size: 26px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+  }
+  /* Jensemaweg 3
+  9883 TH Oldehove
+  The Netherlands */
+  .venue-address {
+    margin-top: 20px;
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+  /* venue desription */
+  .venue-description {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  /* schedule */
+  .schedule-header {
+    font-size: 35px;
+    letter-spacing: 1px;
+    margin-top: 50px;
+  }
+  .underline-schedule {
+    width: 130px;
+    margin-top: 1px;
+  }
+  /* June 30th, 2018 */
+  .schedule-date {
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-top: 50px;
+  }
+  .schedule-img {
+    margin-top: 30px;
+  }
+  /* schedule notes * ** */
+  .schedule-arrivaltime-notes {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  /* accomodation */
+  .accomodation-header {
+    font-size: 35px;
+    letter-spacing: 1px;
+    margin-top: 50px;
+  }
+  /* underline accomodation */
+  .underline-accomodation {
+    width: 210px;
+    margin-top: 1x;
+    height: 1px;
+  }
+  /* since your venue is situated.... */
+  .accomodation-message {
+    font-size: 17px;
+    margin-top: 30px;
+  }
+  .camp-title {
+    font-size: 26px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+  .underline-camp {
+    max-width: 200px;
+    margin-top: 3px;
+  }
+  .camp-msg {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+  .bookbed-title {
+    font-size: 26px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+  .underline-bookbed {
+    max-width: 260px;
+    margin-top: 3px;
+  }
+  .bookbed-msg {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+  .bookbed-details {
+    max-width: 220px;
+  }
+  .hotel-title {
+    font-size: 26px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+  .underline-hotel {
+    max-width: 230px;
+    margin-top: 3px;
+  }
+  .hotel-msg {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+  .hotel-details {
+    max-width: 220px;
+  }
+  .hotel-prices {
+    max-width: 125px;
+  }
+
+  .textbox-sharingroom {
+    font-size: 15px;
+    max-height: 145px;
+  }
+
+  .team-header {
+    font-size: 35px;
+    margin-top: 90px;
+    letter-spacing: 1px;
+  }
+  .underline-team {
+    max-width: 220px;
+    margin-top: 1px;
+  }
+  /* We are very pleased to tell.... */
+  .team-msg {
+    font-size: 17px;
+    margin-top: 30px;
+  }
+  .charlotte {
+    grid-column: 1 / 3;
+  }
+  .eline {
+    grid-column: 1 / 3;
+    margin-top: 60px;
+  }
+  .charlotte > h1, .eline > h1 {
+    font-size: 28px;
+    margin-top: 10px;
+  }
+  .phone-container {
+    margin-top: 7px;
+  }
+  .team-email {
+    font-size: 17px;
+  }
+  .song-request-header {
+    font-size: 35px;
+    margin-top: 50px;
+  }
+  .underline-song {
+    max-width: 210px;
+    margin-top: 1px;
+  }
+  /* We wanted everyone to enjoy... */
+  .song-request-msg {
+    margin-top: 30px;
+    font-size: 17px;
+    text-align: justify;
+  }
+  .song-request-input {
+    margin-top: 25px;
+  }
+  .request1 > input, .request2 > input,
+  .request3 > input, .request4 > input,
+  .request5 > input, .request6 > input,
+  .request7 > input, .request8 > input  {
+    width: auto;
+    height: 40px;
+    font-size: 18px;
+    padding: 10px 24px;
+    margin-top: 4px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .request2 , .request3 ,
+   .request4 , .request5 ,
+    .request6 , .request7 ,
+     .request8 {
+    margin-top: 25px;
+  }
+
+  /* wedding registy section */
+  .registry-header {
+    font-size: 35px;
+    margin-top: 50px;
+  }
+  .underline-registry {
+    width: 265px;
+    margin-top: 1px;
+  }
+  .registry-msg {
+    font-size: 17px;
+    margin-top: 30px;
+  }
+  .linebreak-closing {
+    width: 180px;
+    margin-bottom: 50px;
+  }
+  /* we are super excited, Love Nathan and Nikita */
+  .closing-msg {
+    margin-top: 50px;
+    font-size: 18px;
+    line-height: 250%;
+  }
+  .closing-img-container {
+    margin-top: 20px;
+  }
+  .modal__footer {
+    margin-top: 30px;
+  }
+  .footer {
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 200%;
+  }
+  #rsvp-request {
+    margin-top: 20px;
+  }
+  .footer > button {
+    margin-bottom: 25px;
+    margin-top: 20px;
+  }
 }
 
 /* iphone 6S and plus screens */
@@ -1148,7 +1797,13 @@ The Netherlands */
   only screen
   and (min-width : 376px)
   and (max-width : 766px) {
-
+    .yay > h1 {
+    font-size: 32px;
+  }
+    .yay > p:nth-of-type(1) {
+    font-size: 19px;
+    margin-top: 20px;
+  }
 }
 
 /* Tablet Styles */
