@@ -214,7 +214,7 @@
 
           var yesInput = document.createElement("input");
           yesInput.setAttribute('type',"radio");
-          yesInput.setAttribute('name', names[i].name + " yes");
+          yesInput.setAttribute('name', names[i].name);
           yesInput.setAttribute('id', names[i].name+" yes");
           yesInput.setAttribute('value', "yes");
           yesInput.setAttribute('onClick', "checkAttendees()");
@@ -226,7 +226,7 @@
 
           var noInput = document.createElement("input");
           noInput.setAttribute('type',"radio");
-          noInput.setAttribute('name', names[i].name+" no");
+          noInput.setAttribute('name', names[i].name);
           noInput.setAttribute('id', names[i].name+" no");
           noInput.setAttribute('value', "no");
           noInput.setAttribute('onClick', "checkAttendees()");
