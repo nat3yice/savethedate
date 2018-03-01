@@ -44,7 +44,7 @@
 
 
     function saveAndCloseNav(){
-      closeModal("myNav");
+      closeNav();
       save();
 
     }
@@ -66,7 +66,7 @@
 
       var names = [];
       for(var i = 0; i < visitor.names.length; i++){
-        var name = visitor.names[i];
+        var name = visitor.names[i].name;
         var input = document.getElementById(name+" yes");
         names.push({"name" : name, "coming": input.checked});
       }
@@ -214,26 +214,26 @@
 
           var yesInput = document.createElement("input");
           yesInput.setAttribute('type',"radio");
-          yesInput.setAttribute('name', names[i] + " yes");
-          yesInput.setAttribute('id', names[i]+" yes");
+          yesInput.setAttribute('name', names[i].name + " yes");
+          yesInput.setAttribute('id', names[i].name+" yes");
           yesInput.setAttribute('value', "yes");
           yesInput.setAttribute('onClick', "checkAttendees()");
           yesInput.innerHTML = "yes";
 
           var yesLabel = document.createElement("label");
-          yesLabel.setAttribute('for', names[i] + " yes");
+          yesLabel.setAttribute('for', names[i].name + " yes");
           yesLabel.innerHTML = "yes";
 
           var noInput = document.createElement("input");
           noInput.setAttribute('type',"radio");
-          noInput.setAttribute('name', names[i]+" no");
-          noInput.setAttribute('id', names[i]+" no");
+          noInput.setAttribute('name', names[i].name+" no");
+          noInput.setAttribute('id', names[i].name+" no");
           noInput.setAttribute('value', "no");
           noInput.setAttribute('onClick', "checkAttendees()");
           noInput.innerHTML = "no";
 
           var noLabel = document.createElement("label");
-          noLabel.setAttribute('for', names[i]+" no");
+          noLabel.setAttribute('for', names[i].name+" no");
           noLabel.innerHTML = "no";
 
           mainDiv.appendChild(nameDiv);
@@ -459,7 +459,7 @@
                  </div>
                  <div class="hotel-link"><a href="https://www.bestwestern.com/en_US/book/hotel-details.92722.html" target="_blank">more info</a>
                  </div>
-                 <a class="hotel-btn button-active" type="button" id="iWantHotel" onClick="iWantHotel()">Book me a room</button>
+                 <button class="hotel-btn button-active" type="button" id="iWantHotel" onClick="iWantHotel()">Book me a room</button>
                  <div class="textbox-sharingroom-container">
                    <textarea id="sharingroomwith" class="textbox-sharingroom" name="sharingroomwith" cols="40" rows="5"
                      placeholder="Please tell us if you'd like only Saturday or both Friday and Saturday. And if you're sharing a room please tell us the names of your roomates..."
