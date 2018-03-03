@@ -27,7 +27,6 @@
   left       : 0;
   width      : 100%;
   height     : 100%;
-  background : rgba(235,140,46,0.45);
 }
 .fullscreen-bg__video {
   position       : absolute;
@@ -64,7 +63,7 @@ img {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgba(53,26,0, 0.6);
+    background-color: rga(53,26,0, 0.6);
     justify-items: center;
     align-items: center;
 }
@@ -82,9 +81,9 @@ img {
 .modal a:hover, .modal a:focus {
     color: #50E3C2;
 }
-.button-active:focus {
+/*.button-active:focus {
     background-color: #50E3C2;
-}
+}*/
 .modal .closebtn {
     position: absolute;
     top: -5%;
@@ -151,9 +150,34 @@ img {
     display: none;
 }
 
-button:focus {outline:0;}
+utton:focus {outline:0;}
 input:focus {outline:0;}
 
+/* css for .btn in venue selection section */
+.btn {
+  width: auto;
+  height: auto;
+  font-size: 18px;
+  font-weight: 300;
+  border-radius: 5px;
+  background-color: #929292;
+  color: white;
+  border: none;
+  letter-spacing: 1.65px;
+  padding: 12px 17px;
+  margin-top: 22px;
+}
+
+.btn:focus {
+    outline: 0;
+    background-color: #fff;
+    color: #50E3C2;
+}
+.active {
+  color: #fff;
+  outline: none;
+  background-color: #50E3C2;
+}
 
 /*main content of modal*/
 .white_background {
@@ -163,7 +187,7 @@ input:focus {outline:0;}
   max-height: 90%;
   min-height: 90%;
   border-radius: 20px;
-  background-color: rgba(255,255,255, .95);
+  background-color: rgba(255,255,255, .96);
   justify-content: center;
   overflow-y: auto;
   grid-template-columns: 1fr 10fr 1fr;
@@ -171,19 +195,32 @@ input:focus {outline:0;}
   align-self: center;
 }
 /* MODAL HEADER AKA LOGO */
+#alreadyRegistered {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 70px;
+  margin-left: 10%;
+  margin-right: 10%;
+  line-height: 150%;
+  font-size: 21px;
+}
 .modal__header {
   grid-column: 1 / -1;
-  grid-row: 0 / 1;
+  grid-ro: 1 / 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
+  margin-top: 70px;
+}
+.logo {
+  width: 100%;
+  margin-top: 10px;
 }
 
 /* MODAL BODY */
 .modal__content {
   grid-column: 1 / -1;
-  grid-row: 2 / 3;
+  grid-ro: 2 / 3;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -204,7 +241,7 @@ input:focus {outline:0;}
 .yay > h1 {
   font-size: 52px;
   font-weight: normal;
-  margin-top: 40px;
+  margin-top: 70px;
   letter-spacing: 2.33px;
 }
 
@@ -222,7 +259,7 @@ it's now time to R.S.V.P. */
 .yay > h2 {
   font-size: 48px;
   color: #50E3C2;
-  margin-top: 100px;
+  margin-top: 60px;
   letter-spacing: 2.53px;
   font-weight: normal;
 }
@@ -238,7 +275,7 @@ it's now time to R.S.V.P. */
 .yay h3 {
   font-size: 23px;
   letter-spacing: 1px;
-  margin-top: 100px;
+  margin-top: 60px;
   font-weight: normal;
   color: #9B9B9B;
 }
@@ -321,6 +358,7 @@ by March 10, 2018. */
   margin-top: 60px;
   font-weight: lighter;
   color: #9B9B9B;
+  line-height: 150%;
 }
 
 /* bummer section */
@@ -501,6 +539,15 @@ The Netherlands */
   line-height: 160%;
   text-align: justify;
 }
+.venue-link {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-top: 22px;
+  text-align: center;
+}
+.venue-link > a {
+  color: #50E3C2;
+}
 
 /* schedule section */
 .schedule-section {
@@ -644,22 +691,20 @@ The Netherlands */
 .camp-link > a {
   color: #50E3C2;
 }
-.accomodation-camp > button {
+/*.accomodation-camp > button {
   width: auto;
   height: auto;
   font-size: 18px;
   font-weight: 300;
-  color: #FFF;
-  background-color: #929292;
   border-radius: 5px;
   border: none;
   letter-spacing: 1.65px;
   padding: 12px 17px;
   margin-top: 22px;
-}
-.accomodation-camp > button:hover {
+}*/
+/*.accomodation-camp > button:hover {
   background-color: #50E3C2;
-}
+}*/
 .svg-camp {
   width: 100%;
   max-width: 90px;
@@ -727,22 +772,20 @@ The Netherlands */
 .bookbed-link > a {
   color: #50E3C2;
 }
-.accomodation-bookbed > button {
+/*.accomodation-bookbed > button {
   width: auto;
   height: auto;
   font-size: 18px;
   font-weight: 300;
-  color: #FFF;
-  background-color: #929292;
   border-radius: 5px;
   border: none;
   letter-spacing: 1.65px;
   padding: 12px 17px;
   margin-top: 22px;
-}
-.accomodation-bookbed > button:hover {
+}*/
+/*.accomodation-bookbed > button:hover {
   background-color: #50E3C2;
-}
+}*/
 .svg-bookbed {
   width: 100%;
   max-width: 73px;
@@ -825,22 +868,20 @@ The Netherlands */
 .hotel-link > a {
   color: #50E3C2;
 }
-.accomodation-hotel > button {
+/*.accomodation-hotel > button {
   width: auto;
   height: auto;
   font-size: 18px;
   font-weight: 300;
-  color: #FFF;
-  background-color: #929292;
   border-radius: 5px;
   border: none;
   letter-spacing: 1.65px;
   padding: 12px 17px;
   margin-top: 22px;
-}
-.accomodation-hotel > button:hover {
+}*/
+/*.accomodation-hotel > button:hover {
   background-color: #50E3C2;
-}
+}*/
 .textbox-sharingroom-container {
   display: inline-block;
   width: 100%;
@@ -887,21 +928,11 @@ The Netherlands */
   letter-spacing: 3px;
 }
 .accomodation-nothanks > button {
-  width: auto;
-  height: auto;
-  font-size: 18px;
-  font-weight: 300;
-  color: #FFF;
-  background-color: #929292;
-  border-radius: 5px;
-  border: none;
-  letter-spacing: 1px;
-  padding: 12px 17px;
   margin-top: 47px;
 }
-.accomodation-nothanks > button:hover {
+/*.accomodation-nothanks > button:hover {
   background-color: #50E3C2;
-}
+}*/
 
 /* Meet the team secion */
 .team-section {
@@ -1111,25 +1142,15 @@ The Netherlands */
 
 .modal__footer {
   grid-column: 1 / -1;
-  grid-row: 3 / 4;
+  grid-ro: 3 / 4;
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
   text-align: center;
-  margin-top: 76px;
 }
 .footer {
   grid-column: 2 / 3;
   font-size: 16px;
   letter-spacing: 2.14px;
-}
-/* Your RSVP is automatically saved */
-#rsvp-auto-save {
-  color: #929292;
-}
-/* We kindly ask you to make final decisions by March 26, 2018. */
-#rsvp-request {
-  color: #929292;
-  margin-top: 30px;
 }
 
 .footer > button {

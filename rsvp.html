@@ -19,7 +19,7 @@
       content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <link href='img-vid/favicon.png' rel="shortcut icon" type="image/png"/>
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script>
         var config = {
           databaseURL: "https://rsvp-dbb88.firebaseio.com"
@@ -27,7 +27,6 @@
         firebase.initializeApp(config);
         var database = firebase.database();
     </script>
-
     <script>
       var accommodation = "";
       var params = window.location.search.substr(1);
@@ -252,7 +251,7 @@
         if(visitor.responded !== null && visitor.responded === true) {
           var alreadyRegistered = document.getElementById("alreadyRegistered");
           var warning = document.createElement("p");
-          warning.innerHTML = "You are already RSVPed! You can fill a new RSVP is some of your information has changed";
+          warning.innerHTML = "You have already R.S.V.P.'d</br>You can send a new one if you need to make an update before the deadline.";
 
           alreadyRegistered.appendChild(warning);
         }
@@ -269,12 +268,20 @@
 
       });
     </script>
+    <script>
+    $(document).ready(function(){
+            $('.btn').click(function () {
+                $('.active').removeClass("active");
+                $(this).addClass("active");
+            })
+        });
+    </script>
   </head>
   <body class='body'>
 <!-- background video -->
     <div class="fullscreen-bg">
-        <video loop muted autoplay poster='img-vid/eng-540p-low-img.jpg'class="fullscreen-bg__video">
-          <source src="img-vid/eng-540p-low.mp4" type="video/mp4">
+        <video loop muted autoplay poster='img-vid/eng-540p-low-img-bw.jpg'class="fullscreen-bg__video">
+          <source src="img-vid/eng-540p-low-blast.mp4" type="video/mp4">
         </video>
     </div>
 <!-- modal post login -->
@@ -284,15 +291,15 @@
       <div class="white_background">
           <div id="alreadyRegistered"></div>
           <div class="modal__header">
-            <a href=""><img href="" src="img-vid/temp-logo.png"></img></a>
+            <a href=""><img class="logo" href="" src="img-vid/stamp-logo.png"></img></a>
           </div>
           <div class="modal__content">
 <!-- capture guests' decision -->
             <div class="greetings-section">
              <div class="yay">
                <h1>You're invited! Yay!</h1>
-               <p>welcome to our wedding website</br>
-                 it's now time to R.S.V.P.</p>
+               <p>Welcome to our wedding website</br>
+                 Now it's time to R.S.V.P.</p>
                <h2>June 30th, 2018</h2>
                <p>Oldehove, The Netherlands</p>
                <h3>Are you coming?</h3>
@@ -302,7 +309,8 @@
                   <!-- Generated Yes No list goes here -->
                 </div>
                 <div class="no-responses-yet">
-                  <h3>We kindly ask you to respond by March 28, 2018.</h3>
+                  <h3>Please continue until the bottom to send your R.S.V.P.</br>
+                  We kindly ask you to respond by April 1, 2018</h3>
                 </div>
                 <div class="bummer">
                   <div id="bummer-message">
@@ -352,6 +360,7 @@
                  livestock farm has been turned into a unique wedding venue with a campsite
                  and a homemade straw hotel with straw igloos, covered wagons, a straw castle
                   and a barn hostel.
+                  <div class="venue-link"><a href="https://www.hayemaheerd.com" target="_blank">more info</a>
               </div>
             </div>
 <!-- schedule section -->
@@ -400,7 +409,7 @@
               </div>
              <div class="camp-link"><a href="https://www.hayemaheerd.com/farm-campsite/" target="_blank">more info</a>
              </div>
-             <button class="camp-btn button-active" type="button" id="iWantCamping" onClick="iWantCamping()">I'm camping!</button>
+             <button class="btn" type="button" id="iWantCamping" onClick="iWantCamping()">I'm camping!</button>
              </div>
              <!-- book a bed on venue option-->
              <div class="accomodation-bookbed">
@@ -424,7 +433,7 @@
                </div>
                <div class="bookbed-link"><a href="https://www.hayemaheerd.com/straw-hotel/" target="_blank">more info</a>
                </div>
-               <button class="bookbed-btn button-active" id="iWantVenue" onClick="iWantVenue()" type="button">Book me a bed!</button>
+               <button class="btn button-active" id="iWantVenue" onClick="iWantVenue()" type="button">Book me a bed!</button>
               </div>
                <!-- book a hotel room option-->
                <div class="accomodation-hotel">
@@ -459,7 +468,7 @@
                  </div>
                  <div class="hotel-link"><a href="https://www.bestwestern.com/en_US/book/hotel-details.92722.html" target="_blank">more info</a>
                  </div>
-                 <button class="hotel-btn button-active" type="button" id="iWantHotel" onClick="iWantHotel()">Book me a room</button>
+                 <button class="btn" type="button" id="iWantHotel" onClick="iWantHotel()">Book me a room</button>
                  <div class="textbox-sharingroom-container">
                    <textarea id="sharingroomwith" class="textbox-sharingroom" name="sharingroomwith" cols="40" rows="5"
                      placeholder="Please tell us if you'd like only Saturday or both Friday and Saturday. And if you're sharing a room please tell us the names of your roomates..."
@@ -469,7 +478,7 @@
              <div class="accomodation-nothanks">
                <div class="or"><hr class="overline-or"></hr>OR
                </div>
-               <button class="noaccomodation-btn button-active" id="iWantNothing" onClick="iWantNothing()" type="button">No thanks, I don't need accomodation</button>
+               <button class="btn button-active" id="iWantNothing" onClick="iWantNothing()" type="button">No thanks, I don't need accomodation</button>
              </div>
             </div>
 <!-- meet the team secion -->
@@ -535,7 +544,7 @@
           <div class="closing-section">
             <div class="closing-msg">
               <hr class="linebreak-closing"></hr>
-            We are super excited to see you all in June, we cant wait!
+            Please feel free to reach out to us if you have any questions. We are super excited to see you all in June, cant wait!
               </br>
             Lots of love,
               </br>
@@ -549,9 +558,7 @@
 <!-- MODAL FOOTER -->
       <div class="modal__footer">
         <div class="footer">
-          <div id="rsvp-auto-save">Your R.S.V.P. is automatically saved.</div>
-          <div id="rsvp-request">We kindly ask you to make final decisions by March 26, 2018.</div>
-          <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Close</button>
+          <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Send R.S.V.P.</button>
         </div>
       </div>
     </div>
