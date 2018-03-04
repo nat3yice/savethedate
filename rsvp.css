@@ -224,8 +224,8 @@ input:focus {outline:0;}
 
 .btn:focus {
     outline: 0;
-    background-color: #fff;
-    color: #50E3C2;
+    background-color: #50E3C2;
+    color: #fff;
 }
 .active {
   color: #fff;

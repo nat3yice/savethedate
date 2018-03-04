@@ -138,17 +138,17 @@
       </div>
     </div>
     <div id="myNav" class="overlay">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
           <p class="modal-message">Please use your invitation email and code we sent</p>
-            <input tabindex="1" class="input-box" type="text" id="email-input" tabindex="10" value="" placeholder="email">
+          <input tabindex="1" class="input-box" type="text" id="email-input" tabindex="10" value="" placeholder="email">
               <br>
-            <input tabindex="2" class="input-box" type="text" id="code-input" value="" placeholder="code">
+          <input tabindex="2" class="input-box" type="text" id="code-input" value="" placeholder="code">
               <br>
-            <button tabindex="3" id="take-me-in-btn" onclick="openRsvp()">Take me in!</button>
-        </div>
-        <div id="invalid-credentials">
-          Please make sure that both the email and code are valid
+          <div class="invalid-credentials" id="invalid-credentials" style="font-size:22px; color: #ED3F54; font-weight: bold; letter-spacing: 1px; line-height: 150%;">
+            Hmm.. that didn't work </br>Please make sure to use your invitation email and code we sent
+          </div>
+          <button tabindex="3" id="take-me-in-btn" onclick="openRsvp()">Take me in!</button>
         </div>
     </div>
   </body>
