@@ -152,13 +152,20 @@
         }
         //All answered
         if (numberChecked * 2 >= numberCheckboxes) {
-          console.log("Complete!");
+          console.log("Everybody yesnoed!");
+          closeModal("no-decision");
+          closeModal("bummer-message");
+          closeModal("still-curious");
+          closeModal("so-happy-response");
+          
           if (!hasYeses) {
+            console.log("No yeses");
             openModal("bummer-message");
             openModal("still-curious");
             closeModal("no-decision");
           }
           else{
+            console.log("Yeses");
             enableAll();
 
             openModal("so-happy-response");
