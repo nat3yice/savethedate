@@ -86,12 +86,15 @@
         }
 
         firebase.database().ref('/attendees/' + visitorCode).once('value').then(function(snapshot) {
+          console.log("IN FIREBASE");
+
           visitor = snapshot.val();
           var visitorEmail = document.getElementById("email-input").value;
           if (!validateVisitor(visitor, visitorEmail)) {
             openModal("invalid-credentials");
           }
           else{
+            console.log("MOVING TO ", visitorCode);
             window.location.replace("/rsvp.html?code="+visitorCode);
           }
         });
@@ -138,13 +141,11 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
           <p class="modal-message">Please use your invitation email and code we sent</p>
-          <form class="login-form" action="#">
             <input tabindex="1" class="input-box" type="text" id="email-input" tabindex="10" value="" placeholder="email">
               <br>
             <input tabindex="2" class="input-box" type="text" id="code-input" value="" placeholder="code">
               <br>
             <button tabindex="3" id="take-me-in-btn" onclick="openRsvp()">Take me in!</button>
-          </form>
         </div>
         <div id="invalid-credentials">
           Please make sure that both the email and code are valid
