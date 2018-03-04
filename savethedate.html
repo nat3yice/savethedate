@@ -21,8 +21,6 @@
     <link rel='stylesheet' href='savethedate.css'/>
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <script>
-        // Initialize Firebase
-        // TODO: Replace with your project's customized code snippet
         var config = {
           databaseURL: "https://rsvp-dbb88.firebaseio.com"
         };
@@ -45,6 +43,14 @@
       var visitorCode = null;
       var visitor = null;
 
+      function openModal(modalName) {
+        document.getElementById(modalName).style.display = "block";
+      }
+
+      function closeModal(modalName) {
+        document.getElementById(modalName).style.display = "none";
+      }
+
       function openNav() {
         document.getElementById("myNav").style.display = "block";
         document.getElementById("outer-container").style.display = "none";
@@ -55,24 +61,27 @@
       }
 
       function validateVisitor(visitor, email) {
+        if(visitor === null){
+          return false;
+        }
+
         var lowercaseEmails = visitor.emails;
         for(var i = 0; i < lowercaseEmails.length; i++){
           lowercaseEmails[i] = lowercaseEmails[i].toLowerCase();
         }
 
-        if (visitor === null || lowercaseEmails.indexOf(email.toLowerCase()) < 0) {
+        if (lowercaseEmails.indexOf(email.toLowerCase()) < 0) {
             return false;
         }
         return true;
       }
 
       function openRsvp(){
-        console.log("1");
-          console.log("2");
+        closeModal("invalid-credentials");
 
-                  visitorCode = document.getElementById("code-input").value;
+        visitorCode = document.getElementById("code-input").value;
         if(visitorCode.length < 1){
-            alert("Please use the code we sent you");
+          openModal("invalid-credentials");
             return;
         }
 
@@ -80,7 +89,7 @@
           visitor = snapshot.val();
           var visitorEmail = document.getElementById("email-input").value;
           if (!validateVisitor(visitor, visitorEmail)) {
-            alert("Invalid credentials");
+            openModal("invalid-credentials");
           }
           else{
             window.location.replace("/rsvp.html?code="+visitorCode);
@@ -137,6 +146,12 @@
             <button tabindex="3" id="take-me-in-btn" onclick="openRsvp()">Take me in!</button>
           </form>
         </div>
+        <div id="invalid-credentials">
+          Please make sure that both the email and code are valid
+        </div>
     </div>
   </body>
+  <script>
+    closeModal("invalid-credentials");
+  </script>
 </html>
