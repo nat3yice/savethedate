@@ -271,7 +271,7 @@
     <script>
     $(document).ready(function(){
             $('.btn').click(function () {
-                $('.active').removeClass("active");
+                $('.btn').not(this).removeClass("active");
                 $(this).addClass("active");
             })
         });
@@ -433,7 +433,7 @@
                </div>
                <div class="bookbed-link"><a href="https://www.hayemaheerd.com/straw-hotel/" target="_blank">more info</a>
                </div>
-               <button class="btn button-active" id="iWantVenue" onClick="iWantVenue()" type="button">Book me a bed!</button>
+               <button class="btn" id="iWantVenue" onClick="iWantVenue()" type="button">Book me a bed!</button>
               </div>
                <!-- book a hotel room option-->
                <div class="accomodation-hotel">
@@ -478,7 +478,7 @@
              <div class="accomodation-nothanks">
                <div class="or"><hr class="overline-or"></hr>OR
                </div>
-               <button class="btn button-active" id="iWantNothing" onClick="iWantNothing()" type="button">No thanks, I don't need accomodation</button>
+               <button class="btn" id="iWantNothing" onClick="iWantNothing()" type="button">No thanks, I don't need accomodation</button>
              </div>
             </div>
 <!-- meet the team secion -->
