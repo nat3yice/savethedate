@@ -72,7 +72,7 @@
 
                   visitorCode = document.getElementById("code-input").value;
         if(visitorCode.length < 1){
-            alert("Please use your code!");
+            alert("Please use the code we sent you");
             return;
         }
 
@@ -130,11 +130,11 @@
         <div class="overlay-content">
           <p class="modal-message">Please use your invitation email and code we sent</p>
           <form class="login-form" action="#">
-            <input class="input-box" type="text" id="email-input" tabindex="10" value="" placeholder="email">
+            <input tabindex="1" class="input-box" type="text" id="email-input" tabindex="10" value="" placeholder="email">
               <br>
-            <input class="input-box" type="text" id="code-input" value="" placeholder="code">
+            <input tabindex="2" class="input-box" type="text" id="code-input" value="" placeholder="code">
               <br>
-            <input id="take-me-in-btn" onclick="openRsvp()" value="Take me in!">
+            <button tabindex="3" id="take-me-in-btn" onclick="openRsvp()">Take me in!</button>
           </form>
         </div>
     </div>

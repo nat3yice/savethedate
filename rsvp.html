@@ -11,7 +11,7 @@
       .hero {
         font-family: 'Dawning of a New Day', cursive;
       }
-      .details, .location, #login-button, .modal-content, .input-box, #take-me-in-btn {
+      .details, .location, #login-button, .modal-content, .input-box, #take-me-in-btn, #rsvp-done-btn {
         font-family: 'Glass Antiqua', cursive;
       }
     </style>
@@ -40,12 +40,10 @@
       document.getElementById(modalName).style.display = "none";
     }
 
-
-
     function saveAndCloseNav(){
-      closeNav();
+      document.getElementById("myNav").style.display = "none";
+      document.getElementById("rsvpSent").style.visibility = "visible";
       save();
-
     }
 
     function save(){
@@ -269,6 +267,9 @@
       });
     </script>
     <script>
+      document.getElementById("rsvpSent").style.visibility = "hidden";
+    </script>
+    <script>
     $(document).ready(function(){
             $('.btn').click(function () {
                 $('.btn').not(this).removeClass("active");
@@ -284,17 +285,17 @@
           <source src="img-vid/eng-540p-low-blast.mp4" type="video/mp4">
         </video>
     </div>
-<!-- modal post login -->
+    <!-- modal post login -->
     <div id="myNav" class="modal">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-<!-- background of foreground modal :) -->
+      <!-- background of foreground modal :) -->
       <div class="white_background">
           <div id="alreadyRegistered"></div>
           <div class="modal__header">
             <a href=""><img class="logo" href="" src="img-vid/stamp-logo.png"></img></a>
           </div>
           <div class="modal__content">
-<!-- capture guests' decision -->
+            <!-- capture guests' decision -->
             <div class="greetings-section">
              <div class="yay">
                <h1>You're invited! Yay!</h1>
@@ -330,7 +331,7 @@
                   <div id="coming-thanks">
                     <div class="thats-sweet-header">That's sweet of you
                     </div>
-                    <div class="thats-sweet-msg">thanks again! and visit us soon!
+                    <div class="thats-sweet-msg">Thanks again! And visit us soon!
                     </div>
                   </div>
                 </div>
@@ -346,7 +347,7 @@
                 </div>
               </div>
             </div>
-<!-- venue section -->
+            <!-- venue section -->
             <div class="venue-section">
               <div class="venue-header">Venue
                 <hr class="underline-venue"></hr></div>
@@ -361,9 +362,10 @@
                  and a homemade straw hotel with straw igloos, covered wagons, a straw castle
                   and a barn hostel.
                   <div class="venue-link"><a href="https://www.hayemaheerd.com" target="_blank">more info</a>
+                  </div>
               </div>
             </div>
-<!-- schedule section -->
+            <!-- schedule section -->
             <div class="schedule-section">
              <div class="schedule-header">Schedule
                <hr class="underline-schedule"></hr></div>
@@ -379,7 +381,7 @@
                  are curious to see a tea ceremony (or Nikita in a Chinese dress), you’re more than welcome to attend!
                </div>
             </div>
-<!-- accomodation section -->
+            <!-- accomodation section -->
             <div class="accomodation-section">
              <div class="accomodation-header">Accomodation
                <hr class="underline-accomodation"></hr>
@@ -481,7 +483,7 @@
                <button class="btn" id="iWantNothing" onClick="iWantNothing()" type="button">No thanks, I don't need accomodation</button>
              </div>
             </div>
-<!-- meet the team secion -->
+            <!-- meet the team secion -->
             <div class="team-section">
              <div class="team-header">Meet the team
                <hr class="underline-team"></hr>
@@ -509,7 +511,7 @@
                <a href="mailto:n2ceremoniemeesters@gmail.com?Subject=&#9901;%20Nathan%20%26%20Nikita%27s%20Wedding%20&#9901;">Email: n2ceremoniemeesters@gmail.com</a>
              </div>
             </div>
-<!-- song request section -->
+            <!-- song request section -->
             <div class="song-request-section">
               <div class="song-request-header">Song request
                 <hr class="underline-song"></hr>
@@ -522,7 +524,7 @@
                  <!-- List of songs is generated here -->
               </div>
             </div>
-<!-- wedding registry section -->
+            <!-- wedding registry section -->
             <div class="wedding-registry-section">
               <div class="registry-header">Wedding registry
                 <hr class="underline-registry"></hr>
@@ -540,26 +542,32 @@
                    Honeymoon Fund is always happy with new sponsors… ;).
                </div>
              </div>
-<!-- closing section -->
-          <div class="closing-section">
-            <div class="closing-msg">
-              <hr class="linebreak-closing"></hr>
-            Please feel free to reach out to us if you have any questions. We are super excited to see you all in June, cant wait!
-              </br>
-            Lots of love,
-              </br>
-            Nathan & Nikita
-            </div>
-            <div class="closing-img-container">
-              <img class="closing-img" src="img-vid/closing-img.jpg"/>
+            <!-- closing section -->
+            <div class="closing-section">
+              <div class="closing-msg">
+                  <hr class="linebreak-closing"></hr>
+                Please feel free to reach out to us if you have any questions. We are super excited to see you all in June, cant wait!
+                  </br>
+                Lots of love,
+                  </br>
+                Nathan & Nikita
+              </div>
+              <div class="closing-img-container">
+                <img class="closing-img" src="img-vid/closing-img.jpg"/>
+              </div>
             </div>
           </div>
-        </div>
-<!-- MODAL FOOTER -->
-      <div class="modal__footer">
-        <div class="footer">
-          <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Send R.S.V.P.</button>
-        </div>
+          <div class="modal__footer">
+             <div class="footer">
+               <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Send R.S.V.P.</button>
+             </div>
+          </div>
+      </div>
+    </div>
+    <div id="rsvpSent" class="overlay">
+      <div class="overlay-content">
+        <p class="modal-message">Your R.S.V.P. has been sent!</p>
+        <button id="rsvp-done-btn" onclick="closeNav()">Done</button>
       </div>
     </div>
     <script>
@@ -572,6 +580,7 @@
 
       function closeNav() {
         document.getElementById("myNav").style.display = "none";
+        document.getElementById("rsvpSent").style.display = "none";
         window.location.replace("/savethedate.html");
       }
      </script>
