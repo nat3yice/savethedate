@@ -107,26 +107,30 @@
     function iWantHotel(){
       accommodation = "hotel";
       console.log("Hotel it is!");
-      changeAccomodations(true);
+      // changeAccomodations(true);
       document.getElementById("sharingroomwith").disabled = false;
     }
 
     function iWantVenue(){
       accommodation = "venue";
       console.log("venue it is!");
-      changeAccomodations(true);
+      // changeAccomodations(true);
+      document.getElementById("sharingroomwith").disabled = true;
+
     }
 
     function iWantNothing(){
       accommodation = "nothing";
       console.log("nothing it is!");
-      changeAccomodations(true);
+      // changeAccomodations(true);
+      document.getElementById("sharingroomwith").disabled = true;
     }
 
     function iWantCamping() {
       accommodation = "camping";
       console.log("Camping it is!");
-      changeAccomodations(true);
+      // changeAccomodations(true);
+      document.getElementById("sharingroomwith").disabled = true;
     }
 
     function sorryMessage(){
