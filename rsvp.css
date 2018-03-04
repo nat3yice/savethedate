@@ -53,6 +53,61 @@ img {
   border: #50E3C2;
 }
 
+#rsvpSent {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0, 0.3);
+  justify-items: center;
+  align-items: center;
+}
+.confirmation-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.confirmation-content > p {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 40px;
+  color: #F8E6C1;
+  display: block;
+  transition: 0.3s;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+#rsvp-done-btn {
+  display          : flex;
+  width            : 262px;
+  height           : 71px;
+  margin-top       : 2em;
+  margin-right     : auto;
+  margin-left      : auto;
+  color            : #F8E6C1;
+  border           : 2px solid #F8E6C1;
+  border-radius    : 100px;
+  background-color : transparent;
+  text-align       : center;
+  font-size        : 24px;
+  justify-content  : center;
+  line-height      : 42px;
+  letter-spacing   : 2px;
+  -webkit-transition-duration: 0.4s; /*safari*/
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+#rsvp-done-btn:hover {
+  background-color: #FFF;
+  color: #50E3C2;
+  border: #50E3C2;
+}
+
 /*dark overlay behind white-background modal*/
 .modal {
     display: grid;

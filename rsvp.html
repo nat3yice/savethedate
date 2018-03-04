@@ -42,7 +42,7 @@
 
     function saveAndCloseNav(){
       document.getElementById("myNav").style.display = "none";
-      document.getElementById("rsvpSent").style.visibility = "visible";
+      document.getElementById("rsvpSent").style.display = "block";
       save();
     }
 
@@ -265,9 +265,6 @@
         disableAll();
 
       });
-    </script>
-    <script>
-      document.getElementById("rsvpSent").style.visibility = "hidden";
     </script>
     <script>
     $(document).ready(function(){
@@ -564,8 +561,8 @@
           </div>
       </div>
     </div>
-    <div id="rsvpSent" class="overlay">
-      <div class="overlay-content">
+    <div id="rsvpSent" class="confirmation-filter">
+      <div class="confirmation-content">
         <p class="modal-message">Your R.S.V.P. has been sent!</p>
         <button id="rsvp-done-btn" onclick="closeNav()">Done</button>
       </div>
