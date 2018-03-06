@@ -602,6 +602,10 @@ The Netherlands */
 .venue-link > a {
   color: #50E3C2;
 }
+.getting-there {
+  text-alignt: justify;
+  margin-top: 22px;
+}
 
 /* schedule section */
 .schedule-section {
