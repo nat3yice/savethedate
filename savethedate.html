@@ -79,7 +79,7 @@
       function openRsvp(){
         closeModal("invalid-credentials");
 
-        visitorCode = document.getElementById("code-input").value;
+        visitorCode = document.getElementById("code-input").value.toLowerCase();
         if(visitorCode.length < 1){
           openModal("invalid-credentials");
             return;
