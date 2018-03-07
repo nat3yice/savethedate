@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
     <link rel='stylesheet' href='savethedate.css'/>
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script>
         var config = {
           databaseURL: "https://rsvp-dbb88.firebaseio.com"
@@ -154,5 +155,12 @@
   </body>
   <script>
     closeModal("invalid-credentials");
+    
+    $("take-me-in-btn").keypress(function(event) {
+      if (event.which == 13) {
+          event.preventDefault();
+          openRsvp();
+      }
+    });
   </script>
 </html>
