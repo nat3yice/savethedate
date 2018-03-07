@@ -155,12 +155,23 @@
   </body>
   <script>
     closeModal("invalid-credentials");
-    
-    $("take-me-in-btn").keypress(function(event) {
+    function enterStuff(event){
       if (event.which == 13) {
           event.preventDefault();
           openRsvp();
       }
+    }
+
+    $("email-input").keypress(function(event) {
+      enterStuff(event);
+    });
+
+    $("code-input").keypress(function(event) {
+      enterStuff(event);
+    });
+
+    $("take-me-in-btn").keypress(function(event) {
+      enterStuff();
     });
   </script>
 </html>
