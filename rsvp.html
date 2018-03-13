@@ -116,7 +116,6 @@
       console.log("venue it is!");
       // changeAccomodations(true);
       document.getElementById("sharingroomwith").disabled = true;
-
     }
 
     function iWantNothing(){
@@ -260,7 +259,7 @@
         if(visitor.responded !== null && visitor.responded === true) {
           var alreadyRegistered = document.getElementById("alreadyRegistered");
           var warning = document.createElement("p");
-          warning.innerHTML = "You have already R.S.V.P.'d</br>You can send a new one if you need to make an update before the deadline.";
+          warning.innerHTML = "You have already RSVP'd</br>You can send a new one if you need to make an update before the deadline.";
 
           alreadyRegistered.appendChild(warning);
         }
@@ -286,7 +285,7 @@
         });
     </script>
   </head>
-  <body class='body'>
+  <body ontouchstart="" class='body'>
 <!-- background video -->
     <div class="fullscreen-bg">
         <video loop muted autoplay poster='img-vid/eng-540p-low-blast.jpg'class="fullscreen-bg__video">
@@ -298,9 +297,10 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <!-- background of foreground modal :) -->
       <div class="white_background">
+          <div id="scroll" class="arrow bounce"><img class="down-arrow" src="img-vid/down-arrow.svg"></div>
           <div id="alreadyRegistered"></div>
           <div class="modal__header">
-            <a href=""><img class="logo" href="" src="img-vid/stamp-logo.png"></img></a>
+            <a href="#"><img class="logo" href="#" src="img-vid/stamp-logo.png"></img></a>
           </div>
           <div class="modal__content">
             <!-- capture guests' decision -->
@@ -308,7 +308,7 @@
              <div class="yay">
                <h1>You're invited! Yay!</h1>
                <p>Welcome to our wedding website</br>
-                 Now it's time to R.S.V.P.</p>
+                 Now it's time to RSVP</p>
                <h2>June 30th, 2018</h2>
                <p>Oldehove, The Netherlands</p>
                <h3>Are you coming?</h3>
@@ -318,7 +318,7 @@
                   <!-- Generated Yes No list goes here -->
                 </div>
                 <div class="no-responses-yet">
-                  <h3>Please continue until the bottom to send your R.S.V.P.</br>
+                  <h3>Please continue until the bottom to send your RSVP</br>
                   We kindly ask you to respond by April 1, 2018</h3>
                 </div>
                 <div class="bummer">
@@ -382,7 +382,7 @@
              <div class="schedule-header">Schedule
                <hr class="underline-schedule"></hr></div>
              <div class="schedule-date">June 30th, 2018</div>
-             <div class="schedule-img"><img class="svg-schedule" src="img-vid/schedule.svg">
+             <div class="schedule-img"><img class="png-schedule" src="img-vid/schedule.png">
              </div>
              <div class="schedule-arrivaltime-notes">*Your arrival time depends on whether you have to check-in at
                the venue, set up your tent or caravan, and whether you would like to attend the tea ceremony.
@@ -508,7 +508,7 @@
                <div class="charlotte"><img src="img-vid/charlotte.png">
                  <h1>Charlotte</h1>
                  <div class="phone-container">
-                   <img class="whatsapp" src="img-vid/whatsapp.png"><span>+31 62550 2779</span>
+                   <img class="whatsapp" src="img-vid/whatsapp.png"><span>+31 62348 7020</span>
                  </div>
                </div>
                <div class="eline"><img src="img-vid/eline.png">
@@ -569,14 +569,14 @@
           </div>
           <div class="modal__footer">
              <div class="footer">
-               <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Send R.S.V.P.</button>
+               <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Send RSVP</button>
              </div>
           </div>
       </div>
     </div>
     <div id="rsvpSent" class="confirmation-filter">
       <div class="confirmation-content">
-        <p class="modal-message">Your R.S.V.P. has been sent!</p>
+        <p class="modal-message">Your RSVP has been sent!</p>
         <button id="rsvp-done-btn" onclick="closeNav()">Done</button>
       </div>
     </div>
@@ -593,6 +593,21 @@
         document.getElementById("rsvpSent").style.display = "none";
         window.location.replace("/savethedate.html");
       }
+
+      function handleScroll(event) {
+        if (event.target.scrollTop > 100) {
+          // Remove arrow here
+          console.log('Remove arrow');
+          $('#scroll').fadeOut();
+
+          // Remove the event listener to not flood memory
+          $('.white_background').off('scroll', handleScroll);
+        }
+      }
+      $(document).ready(function(){
+         $('.white_background').on('scroll', handleScroll);
+      });
+
      </script>
   </body>
 </html>
