@@ -58,7 +58,7 @@
                     var key = elements[0].trim();
                     var emails = extractFromList(elements[1]);
                     var names = convertToNameObjects(extractFromList(elements[2]));
-                    var isAmerican = (elements[3] == 'true');
+                    var isAmerican = (elements[3].trim() == 'true');
                     console.log('saving ', key);
                     firebase.database().ref('attendees/' + key).set({
                         emails: emails,
