@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang='eng'>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script>
+      var config = {
+        databaseURL: "https://rsvp-dbb88.firebaseio.com"
+      };
+      firebase.initializeApp(config);
+      var database = firebase.database();
+  </script>
+  <meta charset='UTF-8'>
+  <title>Importing data in Firebase</title>
+
+</head>
+
+<body>
+    <!-- code;email@one.fr, email@two.fr; name 1, name 2, name 3; true-->
+    <div id="content">
+        doe;jane@doe.com, JOHN@doe.com; JANE doe, john doe, baby doe;true
+        trump;donald@trump.gov; donald trump;false
+        mouse;mickey@mouse.com;Mickey Mouse;false
+        bui; mrnathanbui@gmail.com, nikitarijgersberg@gmail.com; Nikita Rijgersberg, Nathan Bui; true
+        dennis; dennisbui27@gmail.com; Dennis Bui, Lily Bui, Quang Bui, Hong Luu; true
+        morningwoods; beasteven@icloud.com; Steven Santos; true
+        wuu; serahjani.wuu@gmail.com, letter54587@gmail.com; Serah Wuu, Rrobert Wuu; true
+        zippylala; bankusan@gmail.com, aewilliams105@gmail.com; Alex Ku, Ban Ku; true
+        swivel; swivel186@gmail.com, constancemeng@gmail.com; Kevin Ngo, Connie Meng; true
+        crimps; sngo111@gmail.com, jess.ho718@gmail.com; Stephen Ngo, Jessica Ho; true
+        venmokiller; melaniekostiw@gmail.com, danielkostiw@gmail.com; Melanie Kostiw, Daniel Kostiw; true
+        luu; dluu09@gmail.com, mchan@meiarchitects.com; Mei Mei Chan, Donald Luu, Shanon Luu, Nathanael Luu; true
+        phammy; phammy.2114@gmail.com; My Pham, false
+        chilinh; nblinh76@yahoo.com; Linh Bui Nguyen, That Van Vu, Linh Thao Vu; false
+        alanreed; stevenbui20@gmail.com, juliechan333@gmail.com; Julie Chan, Carl Bui, Steven Bui; true
+        pistachios; lolwtferic@gmail.com, pauline.t.phan@gmail.com; Eric Bui, Pauline Phan; true
+        cwissateen; bui.christine@yahoo.com, christians5phone@gmail.com; Christine Garguena, Christian Garguena; true
+        diego; tienlai57@yahoo.com, tatiana.lai@yahoo.com; Ngoc Bui, Teddy Lai, Tatiana Lai; true
+        seaworld; tlai06@hotmail.com, jennykhien@hotmail.com; Trung Lai, Jenny Lai; true
+        muntao; tbui83@hotmail.com, thtranbui@gmail.com; Tuan Bui, Thu Bui, Anakin Bui, Ashton Bui; true
+        stanford; rtbui87@att.net; Rebecca Bui, Thai Bui; true
+        miffy; heatherhuebui@gmail.com; Heather Bui, Travis Newbill; true
+        soon; soon.gilbert@gmail.com, hannahkeelor@gmail.com; Gilbert Soon, Hannah Keelor; true
+        dre; andrenguyen23@gmail.com; Andre Nguyen; true
+        walgreens; mr.walter.ng@gmail.com, only01mai@yahoo.com; Walter Ng, Mai Ng; true
+        sandhonch; warren_ng_32@yahoo.com; Warren Ng; true
+        houseofcards; amirkadri111@gmail.com; Amir Kadri; true
+        banhmi; truongdac89@gmail.com; Anh Truong, Kyle Wong ; true
+        changeyouroil; tiffngo89@gmail.com, juancho.5@live.com; Tiffany Ngo, Juan Arroyave; true
+        peneses4life; teezilla@gmail.com; Tee Tran; true
+        mryolk; reachtommytran@gmail.com, carmencheung8@gmail.com; Tommy Tran, Carmen Cheung; true
+        sifu; richard_ow@yahoo.com; Richard Ow; true
+        capetown; julieswest@gmail.com, georgeawest3@gmail.com; George West, Julie West; true
+        biggerpockets; jeffsprather@gmail.com, liezl.wilke@gmail.com; Liezl Prather, Jeff Prather; true
+        alwaysmybro; fangui22@gmail.com; Fan Gui; true
+        bleachedbuttholes; elmerlwoods@gmail.com; Elmer Woods; true
+        bookofjohn; justinlim7.1@gmail.com; Justin Lim; true
+        bookofpeter; daniel.delamare@live.com; Daniel deLamare; true
+        bangkok; yisteve85@gmail.com; Steve Yi; true
+        ltdgay; dasont@gmail.com; Dason Tran; true
+        bimber; dworakowski.lukasz@gmail.com, dworakowska.pa@gmail.com; Patrycja Dworakowska, Lukasz Dworakowski; true
+        pileofsex; matthew.duff89@gmail.com; Matthew Duff; false
+        saltypirate; m.g.rosenthal@gmail.com; Mike Rosenthal; true
+        siemreap; andrew.kahner@gmail.com, noabron@gmail.com; Noa Kahner, Andrew Kahner; true
+        yolo; leemspika@gmail.com, therese.vainius@gmail.com; Mat Lee, Therese Vainius; true
+        dimsum; frankholliday@gmail.com; Frank Sun; true
+        trumpsucks; mdolon@gmail.com; Monji Dolon; true
+        favcouple; jgorayek@gmail.com, sylwiagorajek@gmail.com; Jakub Gorajek, Sylwia Gorajek; true
+        3dmovies; massoudariazand@gmail.com; Massoud Ariazand; true
+        gongti; alanlin98@gmail.com; Alan Lin; true
+        sanlituan; jtseng210@gmail.com; Jessi Tseng; true
+        girbauds; nlouie413@yahoo.com, patricep103@gmail.com; Norman Louie, Patrice Phung; true
+    </div>
+
+    <script>
+        function extractFromList(nameList){
+            var nameArray = nameList.split(",");
+            var names = [];
+            for(var i = 0; i < nameArray.length; i++){
+                names.push(nameArray[i].trim());
+            }
+            return names;
+        }
+
+        function convertToNameObjects(nameArray){
+            for(var i = 0; i < nameArray.length; i++) {
+                nameArray[i] = {"name": nameArray[i]};
+            }
+            return nameArray;
+        }
+
+            var data = document.getElementById("content").textContent;
+            var lines = data.split("\n");
+            for(var i =0; i < lines.length; i++){
+                var line = lines[i].trim();
+                if(line.length === 0){
+                    console.log('line ', i, ' was empty');
+                }
+                else{
+                    console.log(line);
+                    var elements = line.split(";");
+                    if(elements.length !=4 ) {
+                        console.log('following line is not correctly formatted, skipping : ',  line);
+                        continue;
+                    }
+                    var key = elements[0].trim();
+                    var emails = extractFromList(elements[1]);
+                    var names = convertToNameObjects(extractFromList(elements[2]));
+                    var isAmerican = (elements[3].trim() == 'true');
+                    console.log('saving ', key);
+                    firebase.database().ref('attendees/' + key).set({
+                        emails: emails,
+                        names: names,
+                        isAmerican : isAmerican
+                    });
+
+                }
+            }
+            alert("Finito!");
+    </script>
+</body>
+</html>
