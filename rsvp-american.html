@@ -259,7 +259,7 @@
         if(visitor.responded !== null && visitor.responded === true) {
           var alreadyRegistered = document.getElementById("alreadyRegistered");
           var warning = document.createElement("p");
-          warning.innerHTML = "Je hebt al gerageerd!</br>Je kunt je reactie nog wijzigen tot 10 mei 2018.";
+          warning.innerHTML = "You have already RSVP'd</br>You can send a new one if you need to make an update before the deadline.";
 
           alreadyRegistered.appendChild(warning);
         }
@@ -306,27 +306,28 @@
             <!-- capture guests' decision -->
             <div class="greetings-section">
              <div class="yay">
-               <h1>Je bent uitgenodigd! Yay!</h1>
-               <p>Welkom op onze website</p>
-               <h2>30 juni 2018</h2>
-               <p>Oldehove, Nederland</p>
-               <h3>Ben je erbij?</h3>
+               <h1>You're invited! Yay!</h1>
+               <p>Welcome to our wedding website</br>
+                 Now it's time to RSVP</p>
+               <h2>June 30th, 2018</h2>
+               <p>Oldehove, The Netherlands</p>
+               <h3>Are you coming?</h3>
              </div>
               <div class="guest-responses">
                 <div id="guest-responses">
                   <!-- Generated Yes No list goes here -->
                 </div>
                 <div class="no-responses-yet">
-                  <h3>Scroll naar beneden voor het invullen van je reactie, onderaan de pagina kun je je reactie verzenden</br>
-                  We vragen je vriendelijk om te reageren vóór 10 mei 2018</h3>
+                  <h3>Please continue until the bottom to send your RSVP</br>
+                  We kindly ask you to respond by April 1, 2018</h3>
                 </div>
                 <div class="bummer">
                   <div id="bummer-message">
                     <div class="bummer-header">Bummer!
                     </div>
-                    <div class="bummer-msg">Jammer dat je er niet bij kan zijn,
-                       we zullen je missen! Je kunt hieronder een berichtje achterlaten
-                        voor het gastenboek!
+                    <div class="bummer-msg">Too bad you can’t make it,
+                      we’ll miss you! You can still leave a
+                        message for the guestbook!
                     </div>
                     <div class="textbox-bummer-container">
                       <textarea class="textbox-bummer" id="textbox-bummer" name="sharingroomwith" cols="40" rows="5"
@@ -336,96 +337,94 @@
                     <button class="bummer-btn" onclick="sorryMessage()" value="Submit">send</button>
                   </div>
                   <div id="coming-thanks">
-                    <div class="thats-sweet-header">Dat is lief van je!
+                    <div class="thats-sweet-header">That's sweet of you
                     </div>
-                    <div class="thats-sweet-msg">Dankjewel!
+                    <div class="thats-sweet-msg">Thanks again! And visit us soon!
                     </div>
                   </div>
                 </div>
                 <hr class="greetings-line-break"></hr>
-                <h4 id="no-decision">Hieronder vind je alle informatie</h4>
+                <h4 id="no-decision">Below you'll find more info</h4>
                 <div id="so-happy-response" class="so-happy-response">
-                  <h1>Super leuk dat je komt!</h1>
-                  <h2>Hieronder vind je alle informatie</h2>
+                  <h1>So happy you're coming!</h1>
+                  <h2>below you'll find all the info you need</h2>
                 </div>
                 <div id="still-curious" class="still-curious">
-                  <h1>Toch nieuwsgierig?</h1>
-                  <h2>Je kunt hieronder het programma bekijken</h2>
+                  <h1>If you're curious</h1>
+                  <h2>you can still take a peek at our schedule</h2>
                 </div>
               </div>
             </div>
             <!-- venue section -->
             <div class="venue-section">
-              <div class="venue-header">Locatie
+              <div class="venue-header">Venue
                 <hr class="underline-venue"></hr></div>
               <div class="venue-img"><img class="hayemaheerd-pic" src="img-vid/hayemaheerd.jpg"
                 alt="Hayema Heerd Barn"></div>
               <div class="venue-name">Hayema Heerd</div>
-              <div class="venue-address">Jensemaweg 3</br>9883 TH Oldehove</br>Nederland
+              <div class="venue-address">Jensemaweg 3</br>9883 TH Oldehove</br>The Netherlands
               </div>
-              <div class="venue-description">Hayema Heerd is een traditionele boerderij in het prachtige nationale
-                 landschap Middag Humsterland in de provincie Groningen. Deze voormalige veehouderij is omgetoverd
-                  tot een unieke feestlocatie met een camping en een stro-hotel met stro-iglo’s, een stro-kasteel,
-                   huifkarren en een hostel in de oude schuur.
-                  <div class="getting-there">Hayema Heerd is het best bereikbaar met de auto en er is voldoende
-                     parkeerplek. Een alternatief is de trein naar station Groningen gevolgd door de bus naar bushalte
-                      Jensemaweg. Vanaf de bushalte is het 9 minuten lopen naar Hayema Heerd. Een taxirit vanaf station
-                       Groningen duurt ongeveer 25 minuten.</div>
-                  <div class="venue-link"><a href="https://www.hayemaheerd.com" target="_blank">Ga naar de website van Hayema Heerd</a>
+              <div class="venue-description">Hayema Heerd is a traditional Dutch farm in the beautiful national
+                 landscape called Middag Humsterland in the Groningen province. This former
+                 livestock farm has been turned into a unique wedding venue with a campsite
+                 and a homemade straw hotel with straw igloos, covered wagons, a straw castle
+                  and a barn hostel.
+                  <div class="getting-there">To get to Hayema Heerd, the easiest and most economical way is to rent
+                     a car from Amsterdam and drive to the venue. Alternatively you can take a train to Groningen
+                      and catch a 25 minute taxi ride to the venue. If you need help planning your trip, contact us
+                       and we'll make sure you get there!</div>
+                  <div class="venue-link"><a href="https://www.hayemaheerd.com" target="_blank">Go to venue website</a>
                   </div>
               </div>
             </div>
             <!-- schedule section -->
             <div class="schedule-section">
-             <div class="schedule-header">Dagprogramma
+             <div class="schedule-header">Schedule
                <hr class="underline-schedule"></hr></div>
-             <div class="schedule-date">30 juni 2018</div>
+             <div class="schedule-date">June 30th, 2018</div>
              <div class="schedule-img"><img class="png-schedule" src="img-vid/schedule.png">
              </div>
-             <div class="schedule-arrivaltime-notes">*Je aankomsttijd hangt af van of je moet inchecken bij Hayema Heerd, je een tent,
-                caravan of camper moet neerzetten en of je de theeceremonie wil bijwonen.
+             <div class="schedule-arrivaltime-notes">*Your arrival time depends on whether you have to check-in at
+               the venue, set up your tent or caravan, and whether you would like to attend the tea ceremony.
              </br></br>
-               **Bij een traditionele Chinese huwelijksceremonie serveren de bruid en bruidegom thee aan hun ouders en de oudere
-                familieleden. Op deze manier tonen zij respect en dankbaarheid voor alle jaren van liefde en zorg. De theeceremonie
-                 symboliseert ook het samenkomen van de twee families. Voor iedereen die het leuk vindt om een theeceremonie te zien
-                  (of Nikita in een Chinese jurk): jullie zijn meer dan welkom om hierbij aanwezig te zijn!
+               **In a traditional Chinese marriage ceremony, the bride and groom serve their parents and elder
+               relatives tea. It is a devout way to show respect and gratitude to their family for all the years of
+                love and care. This process also symbolizes the joining together of the two families. For those that
+                 are curious to see a tea ceremony (or Nikita in a Chinese dress), you’re more than welcome to attend!
                </div>
             </div>
             <!-- accomodation section -->
             <div class="accomodation-section">
-             <div class="accomodation-header">Accomodatie
+             <div class="accomodation-header">Accomodation
                <hr class="underline-accomodation"></hr>
              </div>
-             <div class="accomodation-message">Omdat Hayema Heerd zich een eindje van de bewoonde wereld bevindt, vind je hieronder
-                een aantal opties om een overnachting te boeken. Omdat de TT in Assen in hetzelfde weekend plaatsvindt, is er een
-                 beperkt aantal hotelkamers beschikbaar. Om die reden vragen we je om hotelkamers indien mogelijk te delen met familie
-                  of vrienden, zodat zoveel mogelijk gasten hiervan gebruik kunnen maken. Op de locatie zijn de strobedden beschikbaar
-                   gesteld aan de buitenlandse gasten, maar op de camping is plek genoeg!
+             <div class="accomodation-message">Our venue is located in a semi-secluded area, so we have prepared some
+                accommodation options for you! There is a national event nearby during this weekend, so hotel room availability is limited. Therefore we would like to ask you to share the rooms
+                  with family or friends if possible.
                 </br></br>
-                We vragen jullie om ons vóór 10 mei 2018 te laten weten of je een overnachting wil boeken, zodat we zeker weten dat
-                 niemand tussen de koeien hoeft te slapen ;).
+                Please let us know if you would like to book any of the accommodations below before April 1st so we
+                 can make sure nobody has to sleep between the cows ;).
              </div>
              <!-- camping option-->
              <div class="accomodation-camp">
                <img class="svg-camp" src="img-vid/vector-camp.svg" alt="tent logo">
-               <div class="camp-title">Kamperen op de locatie
+               <div class="camp-title">Camp at the venue
                  <hr class="underline-camp"></hr>
                </div>
-               <div class="camp-msg">Kom met je eigen tent, caravan of camper!
+               <div class="camp-msg">Bring your own tent, caravan or camper!
                </div>
                <div class="camp-details-container">
                  <div class="camp-details">
-                   Faciliteiten: Gedeeld sanitair</br>
-                   Inclusief: Ontbijt</br>
-                   Kosten: €16.00 / persoon / nacht
+                   Facilities: Shared bathrooms</br>
+                   Breakfast: Included</br>
+                   Price: €16.00 / person / night
                  </div>
               </div>
-             <div class="camp-link"><a href="https://www.hayemaheerd.com/farm-campsite/" target="_blank">meer informatie</a>
+             <div class="camp-link"><a href="https://www.hayemaheerd.com/farm-campsite/" target="_blank">more info</a>
              </div>
-             <button class="btn" type="button" id="iWantCamping" onClick="iWantCamping()">Ik wil kamperen!</button>
+             <button class="btn" type="button" id="iWantCamping" onClick="iWantCamping()">I'm camping!</button>
              </div>
              <!-- book a bed on venue option-->
-             <!--
              <div class="accomodation-bookbed">
                <img class="svg-bookbed" src="img-vid/vector-bed.svg" alt="bed logo">
                <div class="bookbed-title">Book a bed at the venue
@@ -449,7 +448,6 @@
                </div>
                <button class="btn" id="iWantVenue" onClick="iWantVenue()" type="button">Book me a bed!</button>
               </div>
-                -->
                <!-- book a hotel room option-->
                <div class="accomodation-hotel">
                  <img class="svg-hotel" src="img-vid/vector-hotel.svg" alt="hotel logo">
@@ -457,42 +455,43 @@
                    <hr class="underline-hotel"></hr>
                  </div>
                  <div class="hotel-msg-container">
-                   <div class="hotel-msg">We hebben een aantal Deluxe kamers gereserveerd in
-                      het Best Western Hotel in Aduard. Elke kamer is geschikt voor maximaal
-                       4 personen. Het is mogelijk de hotelkamers te boeken voor 1 of 2 nachten
-                        (vrijdag 29 en zaterdag 30 juni).
+                   <div class="hotel-msg">We made reservations for the
+                     Deluxe Rooms at the Best Western Hotel in Aduard.
+                     Every room can host a maxiumum of 4 people. It is
+                     possible to book a room for 2 nights (Friday 29th
+                     and Saturday 30th).
                      </br>
                      </br>
-                     Het hotel bevindt zich op 10 minuten rijden van de locatie.
+                     The hotel is a 10 minute drive away from the venue.
                    </div>
                  </div>
                  <div class="hotel-details-container">
                    <div class="hotel-details">
-                     Faciliteiten: Eigen badkamer</br>
-                     Inclusief: Ontbijt</br>
-                     Prijs/kamer/nacht:
+                     Facilities: Private bathrooms</br>
+                     Breakfast: Included</br>
+                     Price/room/night:
                    </div>
                  </div>
                  <div class="hotel-prices-container">
                    <div class="hotel-prices">
-                     1-2 personen   €76.00</br>
-                     3 personen     €108.00</br>
-                     4 personen     €140.00</br>
+                     1-2 people   €76.00</br>
+                     3 people     €108.00</br>
+                     4 people     €140.00</br>
                    </div>
                  </div>
-                 <div class="hotel-link"><a href="https://www.bestwestern.com/en_US/book/hotel-details.92722.html" target="_blank">meer informatie</a>
+                 <div class="hotel-link"><a href="https://www.bestwestern.com/en_US/book/hotel-details.92722.html" target="_blank">more info</a>
                  </div>
-                 <button class="btn" type="button" id="iWantHotel" onClick="iWantHotel()">Boek een hotelkamer</button>
+                 <button class="btn" type="button" id="iWantHotel" onClick="iWantHotel()">Book me a room</button>
                  <div class="textbox-sharingroom-container">
                    <textarea id="sharingroomwith" class="textbox-sharingroom" name="sharingroomwith" cols="40" rows="5"
-                     placeholder="Laat ons weten of je de hotelkamer voor 1 nacht (zaterdag) of 2 nachten (vrijdag en zaterdag) wil boeken. We horen ook graag met wie je de kamer deelt, alvast bedankt!"
+                     placeholder="Please tell us if you'd like only Saturday or both Friday and Saturday. If you're sharing a room, please tell us the names of your roomates..."
                    ></textarea>
                  </div>
              </div>
              <div class="accomodation-nothanks">
-               <div class="or"><hr class="overline-or"></hr>OF
+               <div class="or"><hr class="overline-or"></hr>OR
                </div>
-               <button class="btn" id="iWantNothing" onClick="iWantNothing()" type="button">Ik heb geen accommodatie nodig</button>
+               <button class="btn" id="iWantNothing" onClick="iWantNothing()" type="button">No thanks, I don't need accomodation</button>
              </div>
             </div>
             <!-- meet the team secion -->
@@ -500,9 +499,10 @@
              <div class="team-header">Meet the team
                <hr class="underline-team"></hr>
              </div>
-             <div class="team-msg">We stellen jullie graag voor aan onze ceremoniemeesters. Charlotte en Eline hebben ons super
-                goed geholpen met de planning en organisatie; mede dankzij hen wordt het een fantastische dag! Ze zijn op onderstaande
-                 e-mailadres en telefoonnummers beschikbaar voor vragen of voor het geval jullie over ons willen roddelen ;).
+             <div class="team-msg">We are excited to introduce you to our “ceremoniemeesters”.
+               In The Netherlands, their role is comparable to the maid of honor. They’ve been super helpful
+               with our wedding planning and will help to make it an unforgettable day! Charlotte and Eline
+               will also be available for all of you in case you have any questions or want to gossip ;).
              </div>
              <div class="team-pics">
                <div class="charlotte"><img src="img-vid/charlotte.png">
@@ -524,13 +524,12 @@
             </div>
             <!-- song request section -->
             <div class="song-request-section">
-              <div class="song-request-header">Vraag je favoriete liedje aan!
+              <div class="song-request-header">Song request
                 <hr class="underline-song"></hr>
               </div>
               <div class="song-request-msg">
-               We willen natuurlijk dat iedereen volop geniet van het feest en
-                het dak eraf danst. Geen betere manier om dat te doen dan op je
-                 favoriete nummer… Vraag hem hier vast aan!
+               We want everyone to enjoy the party and dance the night away.
+             What better way of doing that than to your favorite song?
                </div>
                <div id="song-request-input" class="song-request-input">
                  <!-- List of songs is generated here -->
@@ -538,28 +537,28 @@
             </div>
             <!-- wedding registry section -->
             <div class="wedding-registry-section">
-              <div class="registry-header">Cadeautjes
+              <div class="registry-header">Wedding registry
                 <hr class="underline-registry"></hr>
               </div>
               <div class="registry-msg">
-                We hebben geen cadeauwensen, omdat er niets meer bij kan in ons
-                 kleine huisje. En belangrijker nog: het feit dat je aanwezig bent
-                  is op zichzelf al een onbetaalbaar cadeau!
+                We do not have a wedding registry because our tiny house is already full :).
+                  More importantly, the fact that you are coming to our wedding is a
+                  priceless gift by itself!
                 </br>
                 </br>
-                Mocht je toch graag iets willen geven; we maken eind 2018 een
-                 onvergetelijke reis naar een nog onbekende bestemming en het
-                  Fonds Huwelijksreizen is <em>altijd</em> blij met nieuwe sponsors… ;)
+                But... If you’re still planning on bringing a present: we
+                 are making an unforgettable trip to a beautiful
+                  honeymoon destination in November 2018, and the
+                   Honeymoon Fund is <em>always</em> happy with new sponsors… ;).
                </div>
              </div>
             <!-- closing section -->
             <div class="closing-section">
               <div class="closing-msg">
                   <hr class="linebreak-closing"></hr>
-                Bel, app, mail, fax of sms ons gerust als je vragen hebt. We hebben
-                 er mega veel zin in en kijken uit naar een onvergetelijk feest met jullie!
+                Please feel free to reach out to us if you have any questions. We are super excited to see you all in June, can't wait!
                   </br>
-                Veel liefs,
+                Lots of love,
                   </br>
                 Nathan & Nikita
               </div>
@@ -570,15 +569,15 @@
           </div>
           <div class="modal__footer">
              <div class="footer">
-               <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Verstuur reactie</button>
+               <button type="button" id="close-end-btn" onclick="saveAndCloseNav()">Send RSVP</button>
              </div>
           </div>
       </div>
     </div>
     <div id="rsvpSent" class="confirmation-filter">
       <div class="confirmation-content">
-        <p class="modal-message">Je reactie is verzonden!</p>
-        <button id="rsvp-done-btn" onclick="closeNav()">Sluiten</button>
+        <p class="modal-message">Your RSVP has been sent!</p>
+        <button id="rsvp-done-btn" onclick="closeNav()">Done</button>
       </div>
     </div>
     <script>
