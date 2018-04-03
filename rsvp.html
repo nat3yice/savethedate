@@ -225,11 +225,11 @@
           yesInput.setAttribute('id', names[i].name+" yes");
           yesInput.setAttribute('value', "yes");
           yesInput.setAttribute('onClick', "checkAttendees()");
-          yesInput.innerHTML = "yes";
+          yesInput.innerHTML = "Ja";
 
           var yesLabel = document.createElement("label");
           yesLabel.setAttribute('for', names[i].name + " yes");
-          yesLabel.innerHTML = "yes";
+          yesLabel.innerHTML = "Ja";
 
           var noInput = document.createElement("input");
           noInput.setAttribute('type',"radio");
@@ -237,11 +237,11 @@
           noInput.setAttribute('id', names[i].name+" no");
           noInput.setAttribute('value', "no");
           noInput.setAttribute('onClick', "checkAttendees()");
-          noInput.innerHTML = "no";
+          noInput.innerHTML = "Nee";
 
           var noLabel = document.createElement("label");
           noLabel.setAttribute('for', names[i].name+" no");
-          noLabel.innerHTML = "no";
+          noLabel.innerHTML = "Nee";
 
           mainDiv.appendChild(nameDiv);
           mainDiv.appendChild(yesInput);
