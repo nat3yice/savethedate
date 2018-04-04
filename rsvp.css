@@ -1898,7 +1898,7 @@ The Netherlands */
     max-width: 220px;
   }
   .hotel-prices {
-    max-width: 125px;
+    max-width: 150px;
   }
 
   .textbox-sharingroom {
@@ -2252,7 +2252,7 @@ The Netherlands */
     max-width: 220px;
   }
   .hotel-prices {
-    max-width: 125px;
+    max-width: 150px;
   }
   .accomodation-hotel > button {
     font-size: 20px;
@@ -2493,7 +2493,7 @@ The Netherlands */
     margin-top: 80px;
   }
   .underline-venue {
-    width: 120px;
+    width: 130px;
     margin-top: 1px;
   }
   /* Venue JPEG */
@@ -2527,7 +2527,7 @@ The Netherlands */
     margin-top: 50px;
   }
   .underline-schedule {
-    width: 160px;
+    width: 280px;
     margin-top: 1px;
   }
   /* June 30th, 2018 */
@@ -2552,7 +2552,7 @@ The Netherlands */
   }
   /* underline accomodation */
   .underline-accomodation {
-    width: 270px;
+    width: 230px;
     margin-top: 1x;
     height: 1px;
   }
@@ -2570,7 +2570,7 @@ The Netherlands */
     letter-spacing: 1px;
   }
   .underline-camp {
-    max-width: 300px;
+    max-width: 370px;
     margin-top: 5px;
   }
   .camp-msg {
@@ -2624,7 +2624,7 @@ The Netherlands */
     max-width: 220px;
   }
   .hotel-prices {
-    max-width: 125px;
+    max-width: 150px;
   }
   .accomodation-hotel > button {
     font-size: 24px;
@@ -2677,7 +2677,7 @@ The Netherlands */
     margin-top: 50px;
   }
   .underline-song {
-    max-width: 210px;
+    max-width: 435px;
     margin-top: 1px;
   }
   /* We wanted everyone to enjoy... */
@@ -2714,7 +2714,7 @@ The Netherlands */
     margin-top: 50px;
   }
   .underline-registry {
-    width: 265px;
+    width: 185px;
     margin-top: 1px;
   }
   .registry-msg {
