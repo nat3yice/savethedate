@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='eng'>
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script>
+      var config = {
+        databaseURL: "https://rsvp-dutch.firebaseio.com"
+      };
+      firebase.initializeApp(config);
+      var database = firebase.database();
+  </script>
+  <meta charset='UTF-8'>
+  <title>Importing data in Firebase in DUTCH</title>
+
+</head>
+
+<body>
+    <!-- code;email@one.fr, email@two.fr; name 1, name 2, name 3; true-->
+    <div id="content">
+      sjeesoonion;liekevds@gmail.com;Lieke van der Straten,Jasper de Haan;false
+
+    </div>
+
+    <script>
+        function extractFromList(nameList){
+            var nameArray = nameList.split(",");
+            var names = [];
+            for(var i = 0; i < nameArray.length; i++){
+                names.push(nameArray[i].trim());
+            }
+            return names;
+        }
+
+        function convertToNameObjects(nameArray){
+            for(var i = 0; i < nameArray.length; i++) {
+                nameArray[i] = {"name": nameArray[i]};
+            }
+            return nameArray;
+        }
+
+            var data = document.getElementById("content").textContent;
+            var lines = data.split("\n");
+            for(var i =0; i < lines.length; i++){
+                var line = lines[i].trim();
+                if(line.length === 0){
+                    console.log('line ', i, ' was empty');
+                }
+                else{
+                    console.log(line);
+                    var elements = line.split(";");
+                    if(elements.length !=4 ) {
+                        console.log('following line is not correctly formatted, skipping : ',  line);
+                        continue;
+                    }
+                    var key = elements[0].trim();
+                    var emails = extractFromList(elements[1]);
+                    var names = convertToNameObjects(extractFromList(elements[2]));
+                    var isAmerican = (elements[3].trim() == 'true');
+                    console.log('saving ', key);
+                    firebase.database().ref('attendees/' + key).set({
+                        emails: emails,
+                        names: names,
+                        isAmerican : isAmerican
+                    });
+
+                }
+            }
+            alert("Finito!");
+    </script>
+</body>
+</html>
